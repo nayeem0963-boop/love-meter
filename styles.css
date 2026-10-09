@@ -1,0 +1,97 @@
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #30262a;
+  background: #fff8f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --rose: #d85570;
+  --rose-dark: #b43d58;
+  --muted: #887b7e;
+  --line: #f0e5e1;
+}
+
+* { box-sizing: border-box; }
+body { min-width: 320px; min-height: 100vh; margin: 0; background: radial-gradient(ellipse at 50% 4%, #fff 0, #fff8f5 55%, #fff3ef 100%); }
+button { font: inherit; }
+.shell { width: min(100% - 40px, 720px); margin: 0 auto; }
+.topbar { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(221, 194, 187, .42); }
+.brand { color: #392b30; text-decoration: none; font-weight: 700; letter-spacing: -.5px; font-size: 18px; }
+.brand-heart { color: var(--rose); margin-right: 6px; }
+.top-note { color: #9c8d90; font-size: 12px; letter-spacing: .04em; }
+.intro { text-align: center; padding: 57px 20px 32px; }
+.eyebrow { color: var(--rose-dark); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.eyebrow span { display: inline-block; width: 6px; height: 6px; background: var(--rose); border-radius: 50%; margin: 0 7px 1px 0; }
+h1 { font: 600 clamp(39px, 8vw, 57px)/1.1 "Playfair Display", Georgia, serif; letter-spacing: -1.8px; margin: 17px 0 13px; }
+h1 em { color: var(--rose); font-weight: 600; }
+.intro-copy { max-width: 500px; margin: 0 auto; color: #75696c; font-size: 14px; line-height: 1.75; }
+.intro-meta { display: flex; gap: 25px; justify-content: center; margin-top: 21px; color: #887b7e; font-size: 11px; }
+.quiz-card { background: rgba(255,255,255,.88); border: 1px solid #f0e5e1; border-radius: 16px; box-shadow: 0 18px 55px rgba(108, 66, 72, .07); padding: 24px 30px 28px; min-height: 315px; }
+.quiz-topline { display: flex; align-items: center; justify-content: space-between; color: #9a8b8e; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+#progress-label { font-weight: 500; letter-spacing: .02em; }
+.progress-track { height: 4px; background: #f5e9e6; border-radius: 5px; margin-top: 13px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, #ef9aa7, #d85570); border-radius: inherit; transition: width .35s ease; }
+.start-state { text-align: center; padding: 36px 10px 8px; }
+.big-heart { color: #e78191; font-size: 31px; animation: heartbeat 1.8s ease-in-out infinite; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.15); } 24% { transform: scale(1); } }
+h2 { font: 600 24px "Playfair Display", Georgia, serif; margin: 11px 0 8px; }
+.start-state p { color: var(--muted); font-size: 13px; margin: 0 0 21px; }
+.name-form { max-width: 410px; margin: 0 auto; padding: 25px 8px 5px; animation: arrive .25s ease both; }
+.name-form .big-heart { text-align: center; }
+.name-form h2, .name-form > p { text-align: center; }
+.name-form > p { color: var(--muted); font-size: 12px; line-height: 1.6; margin: 0 0 20px; }
+.name-form label { display: block; color: #594a4e; font-size: 11px; font-weight: 700; margin: 13px 0 6px; }
+.name-form input { width: 100%; min-height: 43px; border: 1px solid var(--line); border-radius: 7px; background: #fffdfc; color: #30262a; padding: 10px 12px; font: inherit; font-size: 13px; }
+.name-form input:focus { outline: 3px solid #f9d8dd; border-color: #e99aa8; }
+.name-form input::placeholder { color: #b7a9ac; }
+.name-form .primary-button { display: block; margin: 20px auto 0; }
+.primary-button { border: 0; border-radius: 8px; padding: 13px 18px; background: var(--rose); color: white; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 7px 16px rgba(216,85,112,.2); transition: transform .15s, background .15s; }
+.primary-button:hover { background: var(--rose-dark); transform: translateY(-1px); }
+.primary-button span { margin-left: 12px; }
+.question-wrap { padding: 28px 5px 0; animation: arrive .25s ease both; }
+@keyframes arrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.category { display: inline-block; color: var(--rose-dark); font-size: 10px; letter-spacing: .12em; font-weight: 700; text-transform: uppercase; background: #fff1f1; padding: 6px 9px; border-radius: 20px; }
+.question { font: 600 clamp(22px, 4vw, 28px)/1.35 "Playfair Display", Georgia, serif; margin: 15px 0 8px; }
+.hint { color: var(--muted); font-size: 12px; margin: 0 0 22px; }
+.answers { display: grid; gap: 8px; }
+.answer { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 45px; text-align: left; padding: 9px 12px; color: #4c4144; border: 1px solid var(--line); background: #fffdfc; border-radius: 8px; font-size: 12px; cursor: pointer; transition: border .15s, background .15s, transform .15s; }
+.answer:hover { border-color: #e99aa8; background: #fff8f7; transform: translateX(2px); }
+.answer:focus-visible, button:focus-visible { outline: 3px solid #ef9aa7; outline-offset: 3px; }
+.answer-dot { flex: 0 0 18px; width: 18px; height: 18px; border: 1px solid #e9d7d5; border-radius: 50%; color: var(--rose); display: grid; place-items: center; font-size: 10px; }
+.quiz-nav { display: flex; justify-content: space-between; margin-top: 18px; }
+.text-button { background: none; border: 0; color: #8c7c80; padding: 8px 0; cursor: pointer; font-size: 12px; }
+.text-button:hover { color: var(--rose-dark); }
+.text-button:disabled { visibility: hidden; }
+.results { text-align: center; padding: 28px 5px 0; animation: arrive .3s ease both; }
+.score-ring { width: 128px; height: 128px; border-radius: 50%; display: grid; place-content: center; margin: 8px auto 14px; background: radial-gradient(circle, white 62%, transparent 64%), conic-gradient(var(--rose) var(--score), #f5e8e6 0); box-shadow: 0 5px 20px rgba(216,85,112,.1); }
+.score-number { font: 700 42px/1 "Playfair Display", Georgia, serif; color: var(--rose-dark); }
+.score-caption { color: #9a8b8e; font-size: 10px; letter-spacing: .12em; margin-top: 4px; }
+.results h2 { margin: 5px 0 8px; }
+.names-line { color: #9b777e; font: 600 14px "Playfair Display", Georgia, serif; margin: 0 auto 8px; }
+.names-line span { color: var(--rose); }
+.result-copy { max-width: 475px; margin: 0 auto 20px; color: #75696c; font-size: 13px; line-height: 1.7; }
+.category-scores { max-width: 390px; margin: 0 auto 20px; text-align: left; display: grid; gap: 10px; }
+.category-row { display: grid; grid-template-columns: 115px 1fr 34px; gap: 9px; align-items: center; font-size: 11px; color: #74676b; }
+.mini-track { height: 6px; border-radius: 5px; background: #f4e9e7; overflow: hidden; }
+.mini-fill { height: 100%; border-radius: inherit; background: #e58191; }
+.category-value { text-align: right; color: #9b777e; font-size: 10px; }
+.reflection { max-width: 475px; background: #fff7f5; border-radius: 9px; padding: 13px 15px; margin: 0 auto 20px; text-align: left; color: #75696c; font-size: 12px; line-height: 1.65; }
+.reflection strong { display: block; color: #583e45; font-size: 11px; margin-bottom: 3px; }
+.results-actions { display: flex; justify-content: center; gap: 16px; align-items: center; }
+.secondary-button { border: 1px solid #ecd9d8; border-radius: 8px; padding: 12px 16px; background: #fff; color: #76666a; font-size: 12px; font-weight: 600; cursor: pointer; }
+.secondary-button:hover { border-color: #e99aa8; color: var(--rose-dark); }
+.primary-button:disabled { opacity: .72; cursor: wait; transform: none; }
+.disclaimer { margin: 16px auto 0; max-width: 460px; color: #9b8d90; font-size: 10px; line-height: 1.6; }
+footer { display: flex; justify-content: space-between; padding: 17px 3px 30px; color: #a18f92; font-size: 10px; }
+footer b { color: var(--rose); }
+@media (max-width: 560px) {
+  .shell { width: min(100% - 28px, 720px); }
+  .topbar { height: 64px; }
+  .intro { padding: 43px 6px 26px; }
+  .intro-meta { gap: 11px; font-size: 10px; flex-wrap: wrap; }
+  .quiz-card { padding: 20px 17px 22px; }
+  .question-wrap { padding: 23px 0 0; }
+  footer { font-size: 9px; }
+  .category-row { grid-template-columns: 100px 1fr 30px; }
+  .results-actions { flex-wrap: wrap; gap: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
