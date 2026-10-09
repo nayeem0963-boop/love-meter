@@ -5,25 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fff8f5" />
     <meta name="description" content="A playful 25-question reflection on the connection you share." />
-    <title>Love Meter — a little heart check</title>
+    <title>Bulbuli’s calculation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
     <main class="shell">
       <header class="topbar">
-        <a class="brand" href="#top" aria-label="Love Meter home"><span class="brand-heart">♥</span> love meter</a>
-        <span class="top-note">A little heart check-in</span>
+        <a class="brand" href="#top" aria-label="Bulbuli’s calculation home">
+          <svg class="bulbul-mark" viewBox="0 0 72 58" role="img" aria-label="Side view sketch of a bulbul facing right" xmlns="http://www.w3.org/2000/svg">
+            <path class="bird-branch" d="M5 49c20-3 40-4 63-2m-45 1-5 6m40-7 5 6" />
+            <path class="bird-tail" d="M19 32 5 24l4 11-8 5 20 1" />
+            <path class="bird-outline" d="M15 36c2-9 10-15 21-16 5-9 15-11 22-4 3 3 4 7 3 11-1 11-12 18-27 18-8 0-15-3-19-9Z" />
+            <path class="bird-wing" d="M22 34c7-8 18-10 31-5-4 8-12 13-23 13-4-2-7-4-8-8Z" />
+            <path class="bird-head" d="M39 20c2-6 7-9 13-8 6 1 9 6 9 12-1 6-5 10-11 10-6 0-10-5-11-14Z" />
+            <path class="bird-crest" d="m44 15 1-9 5 6 3-9 3 11" />
+            <path class="bird-beak" d="m61 20 9 3-9 3" />
+            <circle class="bird-eye" cx="57" cy="18" r="1.5" />
+            <ellipse class="bird-cheek" cx="58" cy="25" rx="2.2" ry="1.5" />
+            <path class="bird-feet" d="m33 44-1 5m8-5 1 5" />
+          </svg>
+          <span id="brand-title">Bulbuli’s calculation</span>
+        </a>
+        <div class="top-actions"><span class="top-note" id="top-note">A little heart check-in</span><button id="language-toggle" class="language-toggle" type="button" aria-label="Switch language">বাংলা</button></div>
       </header>
 
       <section class="intro" id="top">
-        <div class="eyebrow"><span></span> MADE FOR CURIOSITY, NOT CERTAINTY</div>
-        <h1>How strong is<br /><em>your connection?</em></h1>
-        <p class="intro-copy">Answer 25 thoughtful questions about someone on your mind. We’ll turn your answers into a playful love score and a few things to reflect on.</p>
-        <div class="intro-meta"><span>♡ &nbsp;25 questions</span><span>◷ &nbsp;About 3 minutes</span><span>✦ &nbsp;Just for fun</span></div>
+        <div class="eyebrow"><span></span> <span id="eyebrow-text">MADE FOR CURIOSITY, NOT CERTAINTY</span></div>
+        <h1 id="intro-title">How strong is<br /><em>your connection?</em></h1>
+        <p class="intro-copy" id="intro-copy">Answer 25 thoughtful questions about someone on your mind. We’ll turn your answers into a playful love score and a few things to reflect on.</p>
+        <div class="intro-meta"><span id="meta-questions">♡ &nbsp;25 questions</span><span id="meta-time">◷ &nbsp;About 3 minutes</span><span id="meta-fun">✦ &nbsp;Just for fun</span></div>
       </section>
 
       <section class="quiz-card" aria-live="polite">
@@ -35,14 +49,14 @@
         <div id="quiz-content">
           <div class="start-state">
             <div class="big-heart" aria-hidden="true">♥</div>
-            <h2>A moment to think about them.</h2>
-            <p>There are no right answers. Go with what feels true for you today.</p>
+            <h2 id="start-title">A moment to think about someone special.</h2>
+            <p id="start-copy">There are no right answers. Go with what feels true for you today.</p>
             <button class="primary-button" id="start-button">Start the questions <span>→</span></button>
           </div>
         </div>
       </section>
 
-      <footer><span>Made with a little curiosity <b>♥</b></span><span>Your answers stay on this device</span></footer>
+      <footer><span id="footer-made">Made with a little curiosity <b>♥</b></span><span id="footer-private">Your answers stay on this device</span></footer>
     </main>
   </body>
 </html>
