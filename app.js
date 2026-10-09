@@ -63,6 +63,9 @@ const translations = {
   },
 };
 
+translations.en.startButton = "Love Meter Quiz";
+translations.bn.startButton = "লাভ মিটার কুইজ";
+
 const languageCategories = {
   en: translations.en.categories,
   bn: translations.bn.categories,
@@ -94,6 +97,74 @@ let belovedName = "";
 const photos = { user: null, beloved: null, couple: null };
 let language = "en";
 let screen = "start";
+let personalityMode = false;
+let personalityAnswers = [];
+let personalityProfile = null;
+const personalityTraits = ["curious", "caring", "social", "steady", "confident"];
+const personalityQuestions = [
+  { en: "How eager is {name} to explore unfamiliar places or ideas?", bn: "অচেনা জায়গা বা নতুন ধারণা খুঁজে দেখতে {name} কতটা আগ্রহী?", trait: 0 },
+  { en: "How often does {name} seek out new experiences?", bn: "{name} কতবার নতুন অভিজ্ঞতার খোঁজ করে?", trait: 0 },
+  { en: "How interested is {name} in understanding different points of view?", bn: "ভিন্ন দৃষ্টিভঙ্গি বুঝতে {name} কতটা আগ্রহী?", trait: 0 },
+  { en: "How readily does {name} try a creative or unusual approach?", bn: "সৃজনশীল বা ব্যতিক্রমী উপায় চেষ্টা করতে {name} কতটা প্রস্তুত?", trait: 0 },
+  { en: "How much does {name} enjoy learning just for the joy of discovery?", bn: "শুধু নতুন কিছু জানার আনন্দে শিখতে {name}-এর কতটা ভালো লাগে?", trait: 0 },
+  { en: "How well does {name} notice when someone is feeling left out?", bn: "কেউ একা বা বাদ পড়েছে—এটা {name} কতটা খেয়াল করে?", trait: 1 },
+  { en: "How willing is {name} to listen when someone needs to talk?", bn: "কারও কথা বলার প্রয়োজন হলে {name} কতটা মন দিয়ে শোনে?", trait: 1 },
+  { en: "How thoughtful is {name} about remembering small things that matter to others?", bn: "অন্যের কাছে গুরুত্বপূর্ণ ছোট বিষয় মনে রাখতে {name} কতটা যত্নশীল?", trait: 1 },
+  { en: "How naturally does {name} offer help without being asked?", bn: "না বললেও সাহায্যের হাত বাড়াতে {name} কতটা স্বতঃস্ফূর্ত?", trait: 1 },
+  { en: "How carefully does {name} consider how their words may affect someone?", bn: "কথায় অন্যের কেমন লাগতে পারে, তা {name} কতটা ভেবে দেখে?", trait: 1 },
+  { en: "How much does {name} enjoy meeting and getting to know new people?", bn: "নতুন মানুষের সঙ্গে পরিচিত হতে {name}-এর কতটা ভালো লাগে?", trait: 2 },
+  { en: "How energized does {name} feel after a lively group gathering?", bn: "প্রাণবন্ত আড্ডার পর {name} কতটা চনমনে বোধ করে?", trait: 2 },
+  { en: "How often does {name} start conversations in a group?", bn: "দলে {name} কতবার নিজে থেকে কথা শুরু করে?", trait: 2 },
+  { en: "How comfortable is {name} sharing their ideas with others?", bn: "অন্যদের সঙ্গে নিজের ভাবনা ভাগ করতে {name} কতটা স্বচ্ছন্দ?", trait: 2 },
+  { en: "How often does {name} bring people together for shared plans?", bn: "একসঙ্গে কিছু করার পরিকল্পনায় {name} কতবার সবাইকে জড়ো করে?", trait: 2 },
+  { en: "How reliably does {name} follow through on a promise?", bn: "কথা দিলে {name} কতটা নির্ভরযোগ্যভাবে তা রাখে?", trait: 3 },
+  { en: "How calmly does {name} handle an unexpected change of plan?", bn: "হঠাৎ পরিকল্পনা বদলে গেলে {name} কতটা শান্তভাবে সামলায়?", trait: 3 },
+  { en: "How well does {name} keep track of responsibilities and details?", bn: "দায়িত্ব ও খুঁটিনাটি মনে রাখতে {name} কতটা ভালো?", trait: 3 },
+  { en: "How patient is {name} when progress takes time?", bn: "কোনো কাজে সময় লাগলে {name} কতটা ধৈর্য ধরে?", trait: 3 },
+  { en: "How steady is {name} when others are feeling stressed?", bn: "অন্যরা চাপে থাকলে {name} কতটা স্থির থাকতে পারে?", trait: 3 },
+  { en: "How comfortable is {name} making a choice without needing everyone’s approval?", bn: "সবার অনুমোদন ছাড়াই সিদ্ধান্ত নিতে {name} কতটা স্বচ্ছন্দ?", trait: 4 },
+  { en: "How readily does {name} speak up about what they believe?", bn: "নিজের বিশ্বাসের কথা বলতে {name} কতটা প্রস্তুত?", trait: 4 },
+  { en: "How well does {name} recover after a disappointment?", bn: "হতাশার পর {name} কতটা ভালোভাবে ঘুরে দাঁড়ায়?", trait: 4 },
+  { en: "How willing is {name} to take a sensible risk for something important?", bn: "গুরুত্বপূর্ণ কিছুর জন্য ভেবেচিন্তে ঝুঁকি নিতে {name} কতটা রাজি?", trait: 4 },
+  { en: "How much does {name} trust their ability to work through a challenge?", bn: "কঠিন পরিস্থিতি সামলানোর নিজের ক্ষমতায় {name} কতটা ভরসা রাখে?", trait: 4 },
+];
+const personalityOptions = {
+  en: ["Curiosity & openness", "Care & empathy", "Social energy", "Steadiness", "Confidence & resilience"],
+  bn: ["কৌতূহল ও নতুনত্ব", "যত্ন ও সহমর্মিতা", "সামাজিক প্রাণশক্তি", "স্থিরতা", "আত্মবিশ্বাস ও দৃঢ়তা"],
+};
+const personalityDescriptions = {
+  en: ["Curiosity and openness seem to stand out in {name}. They enjoy discovering what could be next and bringing fresh energy to familiar moments.", "Care and empathy seem especially present in {name}. They pay attention to how people feel and make others feel considered.", "Social energy is a bright spot for {name}. They often enjoy connecting people and adding warmth to shared moments.", "Steadiness is a strength for {name}. Their patience and reliability can help others feel grounded.", "Confidence and resilience stand out in {name}. They trust themselves to speak up, make choices, and work through challenges."],
+  bn: ["কৌতূহল ও নতুন কিছুর প্রতি খোলা মন {name}-এর মধ্যে বিশেষভাবে দেখা যায়। নতুন কিছু আবিষ্কার করে পরিচিত মুহূর্তেও নতুনত্ব আনে।", "যত্ন ও সহমর্মিতা {name}-এর মধ্যে স্পষ্ট। অন্যের অনুভূতি খেয়াল করে, মানুষকে গুরুত্ব পাওয়া অনুভব করায়।", "সামাজিক প্রাণশক্তি {name}-এর উজ্জ্বল দিক। মানুষকে কাছে আনা ও একসঙ্গে আনন্দ তৈরি করতে ভালোবাসে।", "স্থিরতা {name}-এর বড় গুণ। ধৈর্য ও নির্ভরযোগ্যতা অন্যদের ভরসা জোগায়।", "আত্মবিশ্বাস ও দৃঢ়তা {name}-এর মধ্যে স্পষ্ট। নিজের কথা বলতে, সিদ্ধান্ত নিতে ও চ্যালেঞ্জ সামলাতে নিজের ওপর ভরসা রাখে।"],
+};
+let certificateTemplate = "classic";
+const certificateTemplates = [
+  { id: "classic", en: "Rose classic", bn: "রোজ ক্লাসিক", background: "#fff8f5", border: "#e8b8bd", accent: "#d85570", title: "#392b30" },
+  { id: "garden", en: "Botanical garden", bn: "বোটানিক্যাল গার্ডেন", background: "#f5f8ef", border: "#a8b89b", accent: "#637b58", title: "#304333" },
+  { id: "modern", en: "Modern minimal", bn: "মডার্ন মিনিমাল", background: "#f5f6f8", border: "#bbc3d0", accent: "#546781", title: "#263449" },
+  { id: "midnight", en: "Midnight gold", bn: "মিডনাইট গোল্ড", background: "#202638", border: "#c9a968", accent: "#e4c77f", title: "#fff4d8" },
+  { id: "confetti", en: "Celebration", bn: "উৎসব", background: "#fff9e9", border: "#e6b85c", accent: "#cf754d", title: "#493527" },
+];
+const coupleCountKey = "bulbuli-couples-tested";
+let inMemoryCoupleCount = null;
+
+function getCoupleCount() {
+  try { return Math.max(0, Number.parseInt(localStorage.getItem(coupleCountKey) || "0", 10) || 0, inMemoryCoupleCount ?? 0); }
+  catch { return inMemoryCoupleCount ?? 0; }
+}
+
+function renderFooterCount() {
+  const count = formatNumber(getCoupleCount());
+  const bird = `<svg class="bulbul-mark footer-bulbul" viewBox="0 0 72 58" role="img" aria-label="Bulbul bird" xmlns="http://www.w3.org/2000/svg"><path class="bird-branch" d="M5 49c20-3 40-4 63-2m-45 1-5 6m40-7 5 6"/><path class="bird-tail" d="M19 32 5 24l4 11-8 5 20 1"/><path class="bird-outline" d="M15 36c2-9 10-15 21-16 5-9 15-11 22-4 3 3 4 7 3 11-1 11-12 18-27 18-8 0-15-3-19-9Z"/><path class="bird-wing" d="M22 34c7-8 18-10 31-5-4 8-12 13-23 13-4-2-7-4-8-8Z"/><path class="bird-head" d="M39 20c2-6 7-9 13-8 6 1 9 6 9 12-1 6-5 10-11 10-6 0-10-5-11-14Z"/><path class="bird-crest" d="m44 15 1-9 5 6 3-9 3 11"/><path class="bird-beak" d="m61 20 9 3-9 3"/><circle class="bird-eye" cx="57" cy="18" r="1.5"/><ellipse class="bird-cheek" cx="58" cy="25" rx="2.2" ry="1.5"/><path class="bird-feet" d="m33 44-1 5m8-5 1 5"/></svg>`;
+  document.querySelector("#footer-made").innerHTML = language === "bn"
+    ? `<span class="footer-count"><strong>${count}</strong> ${bird} বুলবুলি</span>`
+    : `<span class="footer-count"><strong>${count}</strong> ${bird} Bulbuli</span>`;
+}
+
+function incrementCoupleCount() {
+  const nextCount = getCoupleCount() + 1;
+  try { localStorage.setItem(coupleCountKey, String(nextCount)); } catch { inMemoryCoupleCount = nextCount; }
+  renderFooterCount();
+}
 
 function applyLanguage() {
   const strings = translations[language];
@@ -111,7 +182,9 @@ function applyLanguage() {
   document.querySelector("#start-title").textContent = strings.startTitle;
   document.querySelector("#start-copy").textContent = strings.startCopy;
   document.querySelector("#start-button").innerHTML = `${strings.startButton} <span>→</span>`;
-  document.querySelector("#footer-made").innerHTML = strings.footerMade;
+  const personalityStart = document.querySelector("#personality-start-button");
+  if (personalityStart) personalityStart.innerHTML = `${language === "bn" ? "ব্যক্তিত্ব কুইজ" : "Personality Quiz"} <span>→</span>`;
+  renderFooterCount();
   document.querySelector("#footer-private").textContent = language === "bn" ? "আপনার উত্তর ও ছবি এই ডিভাইসেই থাকে" : "Your answers and photos stay on this device";
   const toggle = document.querySelector("#language-toggle");
   toggle.textContent = strings.toggle;
@@ -124,6 +197,8 @@ function applyLanguage() {
   if (screen === "name") renderNameForm();
   if (screen === "question") renderQuestion();
   if (screen === "result") renderResults();
+  if (screen === "personality-question") renderPersonalityQuestion();
+  if (screen === "personality-result") renderPersonalityResults();
 }
 
 document.querySelector("#language-toggle").addEventListener("click", () => {
@@ -133,25 +208,37 @@ document.querySelector("#language-toggle").addEventListener("click", () => {
 applyLanguage();
 
 document.querySelector("#start-button").addEventListener("click", renderNameForm);
+document.querySelector("#personality-start-button").addEventListener("click", () => {
+  personalityMode = true;
+  personalityAnswers = [];
+  personalityProfile = null;
+  renderNameForm();
+});
 
 function renderNameForm() {
   screen = "name";
   stepLabel.textContent = t("nameIntro");
   progressLabel.textContent = t("beforeBegin");
+  const nameFormTitle = personalityMode
+    ? (language === "bn" ? "কার ব্যক্তিত্ব জানতে চান?" : "Whose personality are you curious about?")
+    : t("nameTitle");
+  const nameFormCopy = personalityMode
+    ? (language === "bn" ? "একটি নাম লিখুন এবং চাইলে একটি ছবি যোগ করুন।" : "Enter one name and add a single optional photo.")
+    : t("nameCopy");
   content.innerHTML = `
     <form class="name-form" id="name-form">
       <div class="big-heart" aria-hidden="true">♥</div>
-      <h2>${t("nameTitle")}</h2>
-      <p>${t("nameCopy")}</p>
+      <h2>${nameFormTitle}</h2>
+      <p>${nameFormCopy}</p>
       <div class="person-entry">
         <div class="photo-preview" id="user-photo-preview">${photoMarkup(photos.user, userName)}</div>
         <div class="person-fields">
-          <label for="your-name">${t("yourName")}</label>
-          <input id="your-name" name="yourName" maxlength="50" autocomplete="given-name" placeholder="${t("yourPlaceholder")}" value="${escapeHtml(userName)}" required />
+          <label for="your-name">${personalityMode ? (language === "bn" ? "নাম" : "Name") : t("yourName")}</label>
+          <input id="your-name" name="yourName" maxlength="50" autocomplete="given-name" placeholder="${personalityMode ? (language === "bn" ? "যেমন: রিয়া" : "e.g. Riley") : t("yourPlaceholder")}" value="${escapeHtml(userName)}" required />
           <label class="photo-picker">${photos.user ? photoCopy[language].change : photoCopy[language].choose}<input id="user-photo" type="file" accept="image/jpeg,image/png,image/webp" /></label>
         </div>
       </div>
-      <div class="person-entry">
+      ${personalityMode ? "" : `<div class="person-entry">
         <div class="photo-preview" id="beloved-photo-preview">${photoMarkup(photos.beloved, belovedName)}</div>
         <div class="person-fields">
           <label for="beloved-name">${t("belovedName")}</label>
@@ -165,30 +252,33 @@ function renderNameForm() {
           <label>${language === "bn" ? "আপনাদের দুজনের ছবি" : "A photo of you together"}</label>
           <label class="photo-picker">${photos.couple ? photoCopy[language].change : photoCopy[language].couple}<input id="couple-photo" type="file" accept="image/jpeg,image/png,image/webp" /></label>
         </div>
-      </div>
+      </div>`}
       <p class="photo-error" id="photo-error" role="status"></p>
-      <button class="primary-button" type="submit">${t("continue")} <span>→</span></button>
+      <button class="primary-button" type="submit">${personalityMode ? (language === "bn" ? "কুইজ শুরু করুন" : "Start the quiz") : t("continue")} <span>→</span></button>
     </form>`;
   document.querySelector("#name-form").addEventListener("submit", (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     userName = String(data.get("yourName")).trim();
-    belovedName = String(data.get("belovedName")).trim();
-    if (!userName || !belovedName) return;
+    belovedName = personalityMode ? "" : String(data.get("belovedName")).trim();
+    if (!userName || (!personalityMode && !belovedName)) return;
     current = 0;
-    renderQuestion();
+    if (personalityMode) renderPersonalityQuestion();
+    else renderQuestion();
   });
   document.querySelector("#your-name").addEventListener("input", (event) => {
     userName = event.currentTarget.value;
     if (!photos.user) document.querySelector("#user-photo-preview").innerHTML = photoMarkup(null, userName);
   });
-  document.querySelector("#beloved-name").addEventListener("input", (event) => {
-    belovedName = event.currentTarget.value;
-    if (!photos.beloved) document.querySelector("#beloved-photo-preview").innerHTML = photoMarkup(null, belovedName);
-  });
   document.querySelector("#user-photo").addEventListener("change", (event) => handlePhotoChange(event, "user"));
-  document.querySelector("#beloved-photo").addEventListener("change", (event) => handlePhotoChange(event, "beloved"));
-  document.querySelector("#couple-photo").addEventListener("change", (event) => handlePhotoChange(event, "couple"));
+  if (!personalityMode) {
+    document.querySelector("#beloved-name").addEventListener("input", (event) => {
+      belovedName = event.currentTarget.value;
+      if (!photos.beloved) document.querySelector("#beloved-photo-preview").innerHTML = photoMarkup(null, belovedName);
+    });
+    document.querySelector("#beloved-photo").addEventListener("change", (event) => handlePhotoChange(event, "beloved"));
+    document.querySelector("#couple-photo").addEventListener("change", (event) => handlePhotoChange(event, "couple"));
+  }
   document.querySelector("#your-name").focus();
 }
 
@@ -240,10 +330,112 @@ function renderQuestion() {
   document.querySelector("#skip-button").addEventListener("click", () => choose(null));
 }
 
+function renderPersonalityQuestion() {
+  screen = "personality-question";
+  const question = personalityQuestions[current];
+  stepLabel.textContent = language === "bn" ? `ব্যক্তিত্ব ${formatNumber(current + 1)} / ${formatNumber(personalityQuestions.length)}` : `PERSONALITY ${current + 1} / ${personalityQuestions.length}`;
+  progressLabel.textContent = `${formatNumber(Math.round((current / personalityQuestions.length) * 100))}% ${language === "bn" ? "সম্পন্ন" : "complete"}`;
+  fill.style.width = `${(current / personalityQuestions.length) * 100}%`;
+  const prompt = (language === "bn" ? question.bn : question.en).replaceAll("{name}", escapeHtml(userName));
+  content.innerHTML = `<div class="question-wrap"><span class="category">${language === "bn" ? "ব্যক্তিত্বের ধরন" : "A personality snapshot"}</span><h2 class="question">${prompt}</h2><p class="hint">${language === "bn" ? "নাম লেখা মানুষটির সঙ্গে কতটা মেলে—তা বেছে নিন।" : "Choose how much each statement fits the person whose name you entered."}</p><div class="answers" role="group" aria-label="${t("answerGroup")}">${t("choices").map((choice, index) => `<button class="answer" data-value="${choices[index].value}"><span class="answer-dot">${formatNumber(index + 1)}</span>${choice}</button>`).join("")}</div><div class="quiz-nav"><button class="text-button" id="back-button" ${current === 0 ? "disabled" : ""}>${t("back")}</button><button class="text-button" id="skip-button">${t("skip")}</button></div></div>`;
+  content.querySelectorAll(".answer").forEach((button) => button.addEventListener("click", () => choosePersonality(Number(button.dataset.value))));
+  document.querySelector("#back-button").addEventListener("click", () => { if (current > 0) { current -= 1; renderPersonalityQuestion(); } });
+  document.querySelector("#skip-button").addEventListener("click", () => choosePersonality(null));
+}
+
+function choosePersonality(value) {
+  personalityAnswers[current] = value;
+  if (current < personalityQuestions.length - 1) { current += 1; renderPersonalityQuestion(); return; }
+  const averages = personalityTraits.map((_, trait) => {
+    const values = personalityQuestions.map((question, index) => question.trait === trait ? personalityAnswers[index] : null).filter((answer) => answer !== null);
+    return values.length ? values.reduce((sum, answer) => sum + answer, 0) / values.length : null;
+  });
+  const highest = Math.max(...averages.filter((average) => average !== null), 0);
+  personalityProfile = highest ? averages.indexOf(highest) : null;
+  renderPersonalityResults();
+}
+
+function renderPersonalityResults() {
+  screen = "personality-result";
+  stepLabel.textContent = language === "bn" ? "আপনার ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT";
+  progressLabel.textContent = t("complete");
+  fill.style.width = "100%";
+  const title = personalityProfile === null
+    ? (language === "bn" ? "আরও একটু জানার বাকি" : "A personality profile awaits")
+    : personalityOptions[language][personalityProfile];
+  const copy = personalityProfile === null
+    ? (language === "bn" ? "সব প্রশ্ন এড়িয়ে গেছেন—একটি উত্তর দিলেই ব্যক্তিত্বের ঝলক তৈরি হবে।" : "You skipped every question. Answer at least one to reveal a personality snapshot.")
+    : personalityDescriptions[language][personalityProfile].replaceAll("{name}", escapeHtml(userName));
+  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${title}</h2><p class="result-copy">${copy}</p><div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer">${language === "bn" ? "এটি উত্তরদাতার ধারণার ভিত্তিতে তৈরি মজার একটি ঝলক—কোনো বৈজ্ঞানিক ব্যক্তিত্ব মূল্যায়ন নয়।" : "A playful snapshot based on the quiz taker’s impressions, not a scientific personality assessment."}</p></div>`;
+  document.querySelector("#again-button").addEventListener("click", reset);
+  document.querySelector("#certificate-button").addEventListener("click", downloadPersonalityCertificate);
+}
+
+async function downloadPersonalityCertificate() {
+  const button = document.querySelector("#certificate-button");
+  button.disabled = true;
+  button.textContent = t("preparing");
+  try {
+    const font = language === "bn" ? "'Noto Sans Bengali', 'Vrinda', sans-serif" : "'DM Sans', sans-serif";
+    if (document.fonts?.load) {
+      if (language === "bn") await document.fonts.load("400 24px 'Noto Sans Bengali'", "ব্যক্তিত্বের সার্টিফিকেট");
+      else await document.fonts.load("400 78px 'Great Vibes'", userName);
+    }
+    if (document.fonts?.ready) await document.fonts.ready;
+    const design = certificateTemplates.find((template) => template.id === certificateTemplate) || certificateTemplates[0];
+    const canvas = document.createElement("canvas");
+    canvas.width = 1600;
+    canvas.height = 1131;
+    const context = canvas.getContext("2d");
+    context.fillStyle = design.background;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.strokeStyle = design.border;
+    context.lineWidth = 5;
+    context.strokeRect(42, 42, 1516, 1047);
+    context.lineWidth = 2;
+    context.strokeRect(61, 61, 1478, 1009);
+    context.textAlign = "center";
+    if (photos.user) await drawPortrait(context, photos.user, userName, 800, 310, font, 112);
+    context.fillStyle = design.accent;
+    context.font = `700 25px ${font}`;
+    context.fillText(language === "bn" ? "ব্যক্তিত্বের ছোট্ট সনদ" : "A PERSONALITY SNAPSHOT", 800, photos.user ? 500 : 310);
+    context.fillStyle = design.title;
+    context.font = language === "bn" ? `600 72px ${font}` : "400 96px 'Great Vibes', cursive";
+    context.fillText(userName, 800, photos.user ? 625 : 465, 1160);
+    const profileTitle = personalityProfile === null
+      ? (language === "bn" ? "আরও একটু জানার বাকি" : "A personality profile awaits")
+      : personalityOptions[language][personalityProfile];
+    context.fillStyle = design.accent;
+    context.font = language === "bn" ? `600 54px ${font}` : "600 48px 'Playfair Display', Georgia, serif";
+    context.fillText(profileTitle, 800, photos.user ? 730 : 570, 1250);
+    const date = new Intl.DateTimeFormat(language === "bn" ? "bn-BD" : undefined, { dateStyle: "long" }).format(new Date());
+    context.fillStyle = design.id === "midnight" ? "#d8d0bf" : "#887b7e";
+    context.font = `400 23px ${font}`;
+    context.fillText(language === "bn" ? `${date} · শুধুই মজার জন্য` : `Created ${date} · Just for fun`, 800, 900);
+    context.font = `400 19px ${font}`;
+    context.fillText(language === "bn" ? "উত্তরদাতার ধারণার ভিত্তিতে তৈরি মজার একটি ঝলক—বৈজ্ঞানিক মূল্যায়ন নয়।" : "A playful impression, not a scientific personality assessment.", 800, 958, 1320);
+    const jpeg = dataUrlToBytes(canvas.toDataURL("image/jpeg", 0.94));
+    const pdf = makeImagePdf(jpeg, canvas.width, canvas.height);
+    const url = URL.createObjectURL(pdf);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `personality-${safeFilename(userName)}.pdf`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch (error) {
+    console.error("Could not create the personality certificate PDF", error);
+    button.textContent = t("pdfFailed");
+    button.disabled = false;
+    return;
+  }
+  button.textContent = t("downloaded");
+  window.setTimeout(() => { button.innerHTML = `${t("certificate")} <span>↓</span>`; button.disabled = false; }, 2500);
+}
+
 function choose(value) {
   answers[current] = value;
   if (current < questions.length - 1) { current += 1; renderQuestion(); }
-  else renderResults();
+  else { incrementCoupleCount(); renderResults(); }
 }
 
 function renderResults() {
@@ -273,10 +465,15 @@ function renderResults() {
       <p class="result-copy">${t(copyKey)}</p>
       <div class="category-scores">${categoryScores.map((item) => `<div class="category-row"><span>${localizeCategory(item.name)}</span><div class="mini-track"><div class="mini-fill" style="width:${item.score ?? 0}%"></div></div><span class="category-value">${item.score === null ? "—" : formatNumber(item.score)}</span></div>`).join("")}</div>
       <div class="reflection"><strong>${t("reflectionTitle")}</strong>${reflectionFor(categoryScores)}</div>
+      <fieldset class="template-picker"><legend>${language === "bn" ? "সার্টিফিকেটের নকশা বেছে নিন" : "Choose a certificate design"}</legend><div class="template-options">${certificateTemplates.map((template) => `<label class="template-option ${certificateTemplate === template.id ? "selected" : ""}"><input type="radio" name="certificate-template" value="${template.id}" ${certificateTemplate === template.id ? "checked" : ""}><span class="template-swatch template-${template.id}" aria-hidden="true"><span>♥</span></span><span class="template-name">${language === "bn" ? template.bn : template.en}</span></label>`).join("")}</div></fieldset>
       <div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div>
       <p class="disclaimer">${t("disclaimer")}</p>
     </div>`;
   document.querySelector("#again-button").addEventListener("click", reset);
+  document.querySelectorAll('input[name="certificate-template"]').forEach((input) => input.addEventListener("change", () => {
+    certificateTemplate = input.value;
+    document.querySelectorAll(".template-option").forEach((option) => option.classList.toggle("selected", option.querySelector("input").checked));
+  }));
   document.querySelector("#certificate-button").addEventListener("click", () => downloadCertificate(score, answered.length > 0));
 }
 
@@ -289,21 +486,25 @@ async function downloadCertificate(score, hasScore) {
   button.disabled = true;
   button.textContent = t("preparing");
   try {
-    if (language === "bn" && document.fonts?.load) await document.fonts.load("400 24px 'Noto Sans Bengali'", "ভালোবাসার সার্টিফিকেট");
+    if (document.fonts?.load) {
+      if (language === "bn") await document.fonts.load("400 24px 'Noto Sans Bengali'", "ভালোবাসার সার্টিফিকেট");
+      else await document.fonts.load("400 78px 'Great Vibes'", `${userName} ${belovedName}`);
+    }
     if (document.fonts?.ready) await document.fonts.ready;
     const canvas = document.createElement("canvas");
     canvas.width = 1600;
     canvas.height = 1131;
     const context = canvas.getContext("2d");
-    context.fillStyle = "#fff8f5";
+    const design = certificateTemplates.find((template) => template.id === certificateTemplate) || certificateTemplates[0];
+    context.fillStyle = design.background;
     context.fillRect(0, 0, canvas.width, canvas.height);
-    context.strokeStyle = "#e8b8bd";
+    context.strokeStyle = design.border;
     context.lineWidth = 4;
     context.strokeRect(42, 42, canvas.width - 84, canvas.height - 84);
-    context.strokeStyle = "#f0d9d6";
+    context.strokeStyle = design.border;
     context.lineWidth = 2;
     context.strokeRect(61, 61, canvas.width - 122, canvas.height - 122);
-    context.fillStyle = "#fbe8e5";
+    context.fillStyle = design.id === "midnight" ? "#343d52" : `${design.accent}22`;
     context.beginPath(); context.arc(800, 293, 135, 0, Math.PI * 2); context.fill();
     context.textAlign = "center";
     const banglaFont = language === "bn" ? "'Noto Sans Bengali', 'Vrinda', sans-serif" : "'DM Sans', sans-serif";
@@ -315,36 +516,36 @@ async function downloadCertificate(score, hasScore) {
       context.font = `700 58px ${banglaFont}`;
       context.fillText("♥", 800, 315);
     }
-    context.fillStyle = "#9c5966";
+    context.fillStyle = design.accent;
     context.font = `700 24px ${banglaFont}`;
     context.letterSpacing = "7px";
     context.fillText(t("certEyebrow"), 800, 474);
     context.letterSpacing = "0px";
-    context.fillStyle = "#392b30";
+    context.fillStyle = design.title;
     context.font = language === "bn" ? `600 72px ${banglaFont}` : "600 76px 'Playfair Display', Georgia, serif";
     context.fillText(t("certTitle"), 800, 581);
     context.fillStyle = "#887b7e";
     context.font = `400 28px ${banglaFont}`;
     context.fillText(t("certBetween"), 800, 644);
-    context.fillStyle = "#b43d58";
-    context.font = language === "bn" ? `600 54px ${banglaFont}` : "600 54px 'Playfair Display', Georgia, serif";
+    context.fillStyle = design.accent;
+    context.font = language === "bn" ? `600 54px ${banglaFont}` : "400 78px 'Great Vibes', cursive";
     await drawPortrait(context, photos.user, userName, 405, 742, banglaFont);
     await drawPortrait(context, photos.beloved, belovedName, 1195, 742, banglaFont);
     context.textAlign = "center";
     context.fillText(userName, 615, 750, 350);
-    context.fillStyle = "#d85570";
+    context.fillStyle = design.accent;
     context.font = "700 42px sans-serif";
     context.fillText("♥", 800, 750);
-    context.fillStyle = "#b43d58";
-    context.font = language === "bn" ? `600 54px ${banglaFont}` : "600 54px 'Playfair Display', Georgia, serif";
+    context.fillStyle = design.accent;
+    context.font = language === "bn" ? `600 54px ${banglaFont}` : "400 78px 'Great Vibes', cursive";
     context.fillText(belovedName, 985, 750, 350);
-    context.fillStyle = "#d85570";
+    context.fillStyle = design.accent;
     context.font = `700 92px ${banglaFont}`;
     context.fillText(hasScore ? `${formatNumber(score)}%` : "♡", 800, 900);
-    context.fillStyle = "#887b7e";
+    context.fillStyle = design.id === "midnight" ? "#d8d0bf" : "#887b7e";
     context.font = `500 22px ${banglaFont}`;
     context.fillText(hasScore ? t("certScore") : t("certBlank"), 800, 945);
-    context.fillStyle = "#9a8b8e";
+    context.fillStyle = design.id === "midnight" ? "#c6bdad" : "#9a8b8e";
     context.font = `400 20px ${banglaFont}`;
     context.fillText(language === "bn" ? `${displayDate} · ${t("justForFun")}` : `Created ${displayDate} · ${t("justForFun")}`, 800, 1020);
     context.font = `400 16px ${banglaFont}`;
@@ -458,6 +659,9 @@ function reflectionFor(scores) {
 
 function reset() {
   answers.fill(null);
+  personalityAnswers = [];
+  personalityProfile = null;
+  personalityMode = false;
   current = -1;
   userName = "";
   belovedName = "";
@@ -468,6 +672,12 @@ function reset() {
   stepLabel.textContent = language === "bn" ? "আপনার প্রশ্নগুলো" : "YOUR QUESTIONS";
   progressLabel.textContent = t("ready");
   fill.style.width = "0";
-  content.innerHTML = `<div class="start-state"><div class="big-heart" aria-hidden="true">♥</div><h2 id="start-title">${t("startTitle")}</h2><p id="start-copy">${t("startCopy")}</p><button class="primary-button" id="start-button">${t("startButton")} <span>→</span></button></div>`;
+  content.innerHTML = `<div class="start-state"><div class="big-heart" aria-hidden="true">♥</div><h2 id="start-title">${t("startTitle")}</h2><p id="start-copy">${t("startCopy")}</p><button class="primary-button" id="start-button">${t("startButton")} <span>→</span></button><button class="secondary-button personality-start" id="personality-start-button" type="button">${language === "bn" ? "ব্যক্তিত্ব কুইজ" : "Personality Quiz"} <span>→</span></button></div>`;
   document.querySelector("#start-button").addEventListener("click", renderNameForm);
+  document.querySelector("#personality-start-button").addEventListener("click", () => {
+    personalityMode = true;
+    personalityAnswers = [];
+    personalityProfile = null;
+    renderNameForm();
+  });
 }
