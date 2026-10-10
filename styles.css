@@ -27,6 +27,9 @@ button { font: inherit; }
 .bird-branch, .bird-feet { fill: none; stroke: #89715e; stroke-width: 1.7; stroke-linecap: round; }
 .top-note { color: #9c8d90; font-size: 12px; letter-spacing: .04em; }
 .top-actions { display: flex; align-items: center; gap: 15px; }
+.home-button { border: 1px solid #ecd9d8; border-radius: 999px; background: rgba(255,255,255,.75); color: #775c63; padding: 7px 12px; font: 600 11px "DM Sans", sans-serif; cursor: pointer; white-space: nowrap; }
+.home-button:hover { border-color: #e99aa8; color: var(--rose-dark); }
+.home-button[hidden] { display: none; }
 .language-toggle { border: 1px solid #ecd9d8; border-radius: 999px; background: rgba(255,255,255,.75); color: #775c63; padding: 7px 12px; font: 600 11px "DM Sans", sans-serif; cursor: pointer; }
 .language-toggle:hover { border-color: #e99aa8; color: var(--rose-dark); }
 .intro { text-align: center; padding: 57px 20px 32px; }

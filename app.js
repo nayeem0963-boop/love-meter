@@ -228,6 +228,7 @@ function applyLanguage() {
   const toggle = document.querySelector("#language-toggle");
   toggle.textContent = strings.toggle;
   toggle.setAttribute("aria-label", language === "en" ? "বাংলায় পরিবর্তন করুন" : "Switch to English");
+  updateHomeButton();
   document.title = language === "bn" ? "বুলবুলি" : "Bulbuli";
   if (screen === "start") {
     stepLabel.textContent = language === "bn" ? "আপনার প্রশ্নগুলো" : "YOUR QUESTIONS";
@@ -246,6 +247,16 @@ document.querySelector("#language-toggle").addEventListener("click", () => {
   language = language === "en" ? "bn" : "en";
   applyLanguage();
 });
+document.querySelector("#home-button").addEventListener("click", reset);
+
+function updateHomeButton() {
+  const button = document.querySelector("#home-button");
+  if (!button) return;
+  button.hidden = screen === "start";
+  button.textContent = language === "bn" ? "← হোম" : "← Home";
+  button.setAttribute("aria-label", language === "bn" ? "হোম পেজে ফিরুন" : "Return to home page");
+}
+
 applyLanguage();
 
 document.querySelector("#start-button").addEventListener("click", renderNameForm);
@@ -265,6 +276,7 @@ document.querySelector("#wellness-start-button").addEventListener("click", () =>
 
 function renderNameForm() {
   screen = "name";
+  updateHomeButton();
   stepLabel.textContent = t("nameIntro");
   progressLabel.textContent = t("beforeBegin");
   const nameFormTitle = personalityMode
@@ -375,6 +387,7 @@ function handlePhotoChange(event, person) {
 
 function renderQuestion() {
   screen = "question";
+  updateHomeButton();
   const question = questions[current];
   stepLabel.textContent = `${t("questionLabel")} ${formatNumber(current + 1)} / ${formatNumber(questions.length)}`;
   progressLabel.textContent = `${formatNumber(Math.round((current / questions.length) * 100))}% ${language === "bn" ? "সম্পন্ন" : "complete"}`;
@@ -396,6 +409,7 @@ function renderQuestion() {
 
 function renderPersonalityQuestion() {
   screen = "personality-question";
+  updateHomeButton();
   const question = personalityQuestions[current];
   stepLabel.textContent = language === "bn" ? `ব্যক্তিত্ব ${formatNumber(current + 1)} / ${formatNumber(personalityQuestions.length)}` : `PERSONALITY ${current + 1} / ${personalityQuestions.length}`;
   progressLabel.textContent = `${formatNumber(Math.round((current / personalityQuestions.length) * 100))}% ${language === "bn" ? "সম্পন্ন" : "complete"}`;
@@ -421,6 +435,7 @@ function choosePersonality(value) {
 
 function renderPersonalityResults() {
   screen = "personality-result";
+  updateHomeButton();
   stepLabel.textContent = language === "bn" ? "আপনার ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT";
   progressLabel.textContent = t("complete");
   fill.style.width = "100%";
@@ -621,6 +636,7 @@ function drawWrappedText(context, text, x, y, maxWidth, lineHeight, maxLines) {
 
 function renderWellnessQuestion() {
   screen = "wellness-question";
+  updateHomeButton();
   const question = wellnessQuestions[current];
   stepLabel.textContent = language === "bn" ? `সুস্থতা ${formatNumber(current + 1)} / ${formatNumber(wellnessQuestions.length)}` : `WELLNESS ${current + 1} / ${wellnessQuestions.length}`;
   progressLabel.textContent = `${formatNumber(Math.round((current / wellnessQuestions.length) * 100))}% ${language === "bn" ? "সম্পন্ন" : "complete"}`;
@@ -641,6 +657,7 @@ function chooseWellness(value) {
 
 function renderWellnessResults() {
   screen = "wellness-result";
+  updateHomeButton();
   stepLabel.textContent = language === "bn" ? "দৈনন্দিন সুস্থতার ঝলক" : "WELLNESS REFLECTION";
   progressLabel.textContent = t("complete");
   fill.style.width = "100%";
@@ -735,6 +752,7 @@ function choose(value) {
 
 function renderResults() {
   screen = "result";
+  updateHomeButton();
   const answered = answers.filter((value) => value !== null);
   const score = answered.length ? Math.round(((answered.reduce((sum, value) => sum + value, 0) - answered.length) / (answered.length * 4)) * 100) : 0;
   const groups = [...new Set(questions.map((question) => question.category))];
@@ -952,6 +970,7 @@ function reset() {
   photos.beloved = null;
   photos.couple = null;
   screen = "start";
+  updateHomeButton();
   stepLabel.textContent = language === "bn" ? "আপনার প্রশ্নগুলো" : "YOUR QUESTIONS";
   progressLabel.textContent = t("ready");
   fill.style.width = "0";
