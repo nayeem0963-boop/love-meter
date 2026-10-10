@@ -102,40 +102,74 @@ let personalityAnswers = [];
 let personalityProfile = null;
 const personalityTraits = ["curious", "caring", "social", "steady", "confident"];
 const personalityQuestions = [
-  { en: "How eager is {name} to explore unfamiliar places or ideas?", bn: "অচেনা জায়গা বা নতুন ধারণা খুঁজে দেখতে {name} কতটা আগ্রহী?", trait: 0 },
-  { en: "How often does {name} seek out new experiences?", bn: "{name} কতবার নতুন অভিজ্ঞতার খোঁজ করে?", trait: 0 },
-  { en: "How interested is {name} in understanding different points of view?", bn: "ভিন্ন দৃষ্টিভঙ্গি বুঝতে {name} কতটা আগ্রহী?", trait: 0 },
-  { en: "How readily does {name} try a creative or unusual approach?", bn: "সৃজনশীল বা ব্যতিক্রমী উপায় চেষ্টা করতে {name} কতটা প্রস্তুত?", trait: 0 },
-  { en: "How much does {name} enjoy learning just for the joy of discovery?", bn: "শুধু নতুন কিছু জানার আনন্দে শিখতে {name}-এর কতটা ভালো লাগে?", trait: 0 },
-  { en: "How well does {name} notice when someone is feeling left out?", bn: "কেউ একা বা বাদ পড়েছে—এটা {name} কতটা খেয়াল করে?", trait: 1 },
-  { en: "How willing is {name} to listen when someone needs to talk?", bn: "কারও কথা বলার প্রয়োজন হলে {name} কতটা মন দিয়ে শোনে?", trait: 1 },
-  { en: "How thoughtful is {name} about remembering small things that matter to others?", bn: "অন্যের কাছে গুরুত্বপূর্ণ ছোট বিষয় মনে রাখতে {name} কতটা যত্নশীল?", trait: 1 },
-  { en: "How naturally does {name} offer help without being asked?", bn: "না বললেও সাহায্যের হাত বাড়াতে {name} কতটা স্বতঃস্ফূর্ত?", trait: 1 },
-  { en: "How carefully does {name} consider how their words may affect someone?", bn: "কথায় অন্যের কেমন লাগতে পারে, তা {name} কতটা ভেবে দেখে?", trait: 1 },
-  { en: "How much does {name} enjoy meeting and getting to know new people?", bn: "নতুন মানুষের সঙ্গে পরিচিত হতে {name}-এর কতটা ভালো লাগে?", trait: 2 },
-  { en: "How energized does {name} feel after a lively group gathering?", bn: "প্রাণবন্ত আড্ডার পর {name} কতটা চনমনে বোধ করে?", trait: 2 },
-  { en: "How often does {name} start conversations in a group?", bn: "দলে {name} কতবার নিজে থেকে কথা শুরু করে?", trait: 2 },
-  { en: "How comfortable is {name} sharing their ideas with others?", bn: "অন্যদের সঙ্গে নিজের ভাবনা ভাগ করতে {name} কতটা স্বচ্ছন্দ?", trait: 2 },
-  { en: "How often does {name} bring people together for shared plans?", bn: "একসঙ্গে কিছু করার পরিকল্পনায় {name} কতবার সবাইকে জড়ো করে?", trait: 2 },
-  { en: "How reliably does {name} follow through on a promise?", bn: "কথা দিলে {name} কতটা নির্ভরযোগ্যভাবে তা রাখে?", trait: 3 },
-  { en: "How calmly does {name} handle an unexpected change of plan?", bn: "হঠাৎ পরিকল্পনা বদলে গেলে {name} কতটা শান্তভাবে সামলায়?", trait: 3 },
-  { en: "How well does {name} keep track of responsibilities and details?", bn: "দায়িত্ব ও খুঁটিনাটি মনে রাখতে {name} কতটা ভালো?", trait: 3 },
-  { en: "How patient is {name} when progress takes time?", bn: "কোনো কাজে সময় লাগলে {name} কতটা ধৈর্য ধরে?", trait: 3 },
-  { en: "How steady is {name} when others are feeling stressed?", bn: "অন্যরা চাপে থাকলে {name} কতটা স্থির থাকতে পারে?", trait: 3 },
-  { en: "How comfortable is {name} making a choice without needing everyone’s approval?", bn: "সবার অনুমোদন ছাড়াই সিদ্ধান্ত নিতে {name} কতটা স্বচ্ছন্দ?", trait: 4 },
-  { en: "How readily does {name} speak up about what they believe?", bn: "নিজের বিশ্বাসের কথা বলতে {name} কতটা প্রস্তুত?", trait: 4 },
-  { en: "How well does {name} recover after a disappointment?", bn: "হতাশার পর {name} কতটা ভালোভাবে ঘুরে দাঁড়ায়?", trait: 4 },
-  { en: "How willing is {name} to take a sensible risk for something important?", bn: "গুরুত্বপূর্ণ কিছুর জন্য ভেবেচিন্তে ঝুঁকি নিতে {name} কতটা রাজি?", trait: 4 },
-  { en: "How much does {name} trust their ability to work through a challenge?", bn: "কঠিন পরিস্থিতি সামলানোর নিজের ক্ষমতায় {name} কতটা ভরসা রাখে?", trait: 4 },
+  { en: "How eager are you to explore unfamiliar places or ideas?", bn: "অচেনা জায়গা বা নতুন ধারণা খুঁজে দেখতে আপনি কতটা আগ্রহী?", trait: 0 },
+  { en: "How often do you seek out new experiences?", bn: "আপনি কতবার নতুন অভিজ্ঞতার খোঁজ করেন?", trait: 0 },
+  { en: "How interested are you in understanding different points of view?", bn: "ভিন্ন দৃষ্টিভঙ্গি বুঝতে আপনি কতটা আগ্রহী?", trait: 0 },
+  { en: "How readily do you try a creative or unusual approach?", bn: "সৃজনশীল বা ব্যতিক্রমী উপায় চেষ্টা করতে আপনি কতটা প্রস্তুত?", trait: 0 },
+  { en: "How much do you enjoy learning just for the joy of discovery?", bn: "শুধু নতুন কিছু জানার আনন্দে শিখতে আপনার কতটা ভালো লাগে?", trait: 0 },
+  { en: "How well do you notice when someone is feeling left out?", bn: "কেউ একা বা বাদ পড়েছে—এটা আপনি কতটা খেয়াল করেন?", trait: 1 },
+  { en: "How willing are you to listen when someone needs to talk?", bn: "কারও কথা বলার প্রয়োজন হলে আপনি কতটা মন দিয়ে শোনেন?", trait: 1 },
+  { en: "How thoughtful are you about remembering small things that matter to others?", bn: "অন্যের কাছে গুরুত্বপূর্ণ ছোট বিষয় মনে রাখতে আপনি কতটা যত্নশীল?", trait: 1 },
+  { en: "How naturally do you offer help without being asked?", bn: "না বললেও সাহায্যের হাত বাড়াতে আপনি কতটা স্বতঃস্ফূর্ত?", trait: 1 },
+  { en: "How carefully do you consider how your words may affect someone?", bn: "আপনার কথায় অন্যের কেমন লাগতে পারে, তা আপনি কতটা ভেবে দেখেন?", trait: 1 },
+  { en: "How much do you enjoy meeting and getting to know new people?", bn: "নতুন মানুষের সঙ্গে পরিচিত হতে আপনার কতটা ভালো লাগে?", trait: 2 },
+  { en: "How energized do you feel after a lively group gathering?", bn: "প্রাণবন্ত আড্ডার পর আপনি কতটা চনমনে বোধ করেন?", trait: 2 },
+  { en: "How often do you start conversations in a group?", bn: "দলে আপনি কতবার নিজে থেকে কথা শুরু করেন?", trait: 2 },
+  { en: "How comfortable are you sharing your ideas with others?", bn: "অন্যদের সঙ্গে নিজের ভাবনা ভাগ করতে আপনি কতটা স্বচ্ছন্দ?", trait: 2 },
+  { en: "How often do you bring people together for shared plans?", bn: "একসঙ্গে কিছু করার পরিকল্পনায় আপনি কতবার সবাইকে জড়ো করেন?", trait: 2 },
+  { en: "How reliably do you follow through on a promise?", bn: "কথা দিলে আপনি কতটা নির্ভরযোগ্যভাবে তা রাখেন?", trait: 3 },
+  { en: "How calmly do you handle an unexpected change of plan?", bn: "হঠাৎ পরিকল্পনা বদলে গেলে আপনি কতটা শান্তভাবে সামলান?", trait: 3 },
+  { en: "How well do you keep track of responsibilities and details?", bn: "দায়িত্ব ও খুঁটিনাটি মনে রাখতে আপনি কতটা ভালো?", trait: 3 },
+  { en: "How patient are you when progress takes time?", bn: "কোনো কাজে সময় লাগলে আপনি কতটা ধৈর্য ধরেন?", trait: 3 },
+  { en: "How steady are you when others are feeling stressed?", bn: "অন্যরা চাপে থাকলে আপনি কতটা স্থির থাকতে পারেন?", trait: 3 },
+  { en: "How comfortable are you making a choice without needing everyone’s approval?", bn: "সবার অনুমোদন ছাড়াই সিদ্ধান্ত নিতে আপনি কতটা স্বচ্ছন্দ?", trait: 4 },
+  { en: "How readily do you speak up about what you believe?", bn: "নিজের বিশ্বাসের কথা বলতে আপনি কতটা প্রস্তুত?", trait: 4 },
+  { en: "How well do you recover after a disappointment?", bn: "হতাশার পর আপনি কতটা ভালোভাবে ঘুরে দাঁড়ান?", trait: 4 },
+  { en: "How willing are you to take a sensible risk for something important?", bn: "গুরুত্বপূর্ণ কিছুর জন্য ভেবেচিন্তে ঝুঁকি নিতে আপনি কতটা রাজি?", trait: 4 },
+  { en: "How much do you trust your ability to work through a challenge?", bn: "কঠিন পরিস্থিতি সামলানোর নিজের ক্ষমতায় আপনি কতটা ভরসা রাখেন?", trait: 4 },
 ];
 const personalityOptions = {
   en: ["Curiosity & openness", "Care & empathy", "Social energy", "Steadiness", "Confidence & resilience"],
   bn: ["কৌতূহল ও নতুনত্ব", "যত্ন ও সহমর্মিতা", "সামাজিক প্রাণশক্তি", "স্থিরতা", "আত্মবিশ্বাস ও দৃঢ়তা"],
 };
 const personalityDescriptions = {
-  en: ["Curiosity and openness seem to stand out in {name}. They enjoy discovering what could be next and bringing fresh energy to familiar moments.", "Care and empathy seem especially present in {name}. They pay attention to how people feel and make others feel considered.", "Social energy is a bright spot for {name}. They often enjoy connecting people and adding warmth to shared moments.", "Steadiness is a strength for {name}. Their patience and reliability can help others feel grounded.", "Confidence and resilience stand out in {name}. They trust themselves to speak up, make choices, and work through challenges."],
-  bn: ["কৌতূহল ও নতুন কিছুর প্রতি খোলা মন {name}-এর মধ্যে বিশেষভাবে দেখা যায়। নতুন কিছু আবিষ্কার করে পরিচিত মুহূর্তেও নতুনত্ব আনে।", "যত্ন ও সহমর্মিতা {name}-এর মধ্যে স্পষ্ট। অন্যের অনুভূতি খেয়াল করে, মানুষকে গুরুত্ব পাওয়া অনুভব করায়।", "সামাজিক প্রাণশক্তি {name}-এর উজ্জ্বল দিক। মানুষকে কাছে আনা ও একসঙ্গে আনন্দ তৈরি করতে ভালোবাসে।", "স্থিরতা {name}-এর বড় গুণ। ধৈর্য ও নির্ভরযোগ্যতা অন্যদের ভরসা জোগায়।", "আত্মবিশ্বাস ও দৃঢ়তা {name}-এর মধ্যে স্পষ্ট। নিজের কথা বলতে, সিদ্ধান্ত নিতে ও চ্যালেঞ্জ সামলাতে নিজের ওপর ভরসা রাখে।"],
+  en: ["Your curiosity and openness stand out. You enjoy discovering what could be next and bringing fresh energy to familiar moments.", "Care and empathy seem especially present in your answers. You pay attention to how people feel and help others feel considered.", "Social energy is a bright spot in your answers. You enjoy connecting people and adding warmth to shared moments.", "Steadiness is a strength in your answers. Your patience and reliability can help others feel grounded.", "Confidence and resilience stand out in your answers. You trust yourself to speak up, make choices, and work through challenges."],
+  bn: ["আপনার কৌতূহল ও নতুন কিছুর প্রতি খোলা মন স্পষ্ট। নতুন কিছু আবিষ্কার করে পরিচিত মুহূর্তেও নতুনত্ব আনেন।", "আপনার উত্তরে যত্ন ও সহমর্মিতা বিশেষভাবে দেখা যায়। অন্যের অনুভূতি খেয়াল করেন এবং মানুষকে গুরুত্ব পাওয়া অনুভব করান।", "আপনার উত্তরে সামাজিক প্রাণশক্তি উজ্জ্বল। মানুষকে কাছে আনা ও একসঙ্গে আনন্দ তৈরি করতে ভালোবাসেন।", "আপনার উত্তরে স্থিরতা একটি বড় গুণ। আপনার ধৈর্য ও নির্ভরযোগ্যতা অন্যদের ভরসা জোগাতে পারে।", "আপনার উত্তরে আত্মবিশ্বাস ও দৃঢ়তা স্পষ্ট। নিজের কথা বলতে, সিদ্ধান্ত নিতে ও চ্যালেঞ্জ সামলাতে নিজের ওপর ভরসা রাখেন।"],
 };
+let wellnessMode = false;
+let wellnessAnswers = [];
+const wellnessCategories = ["Movement", "Rest & stress", "Nourishment", "Mood & support", "Everyday care"];
+const wellnessCategoryTranslations = {
+  en: wellnessCategories,
+  bn: ["শরীরচর্চা", "বিশ্রাম ও চাপ সামলানো", "পুষ্টি", "মন ও সহায়তা", "দৈনন্দিন যত্ন"],
+};
+const wellnessQuestions = [
+  { en: "How much do you make room for movement that suits your abilities?", bn: "নিজের সামর্থ্য অনুযায়ী চলাফেরা বা শরীরচর্চার জন্য আপনি কতটা সময় রাখেন?", category: 0 },
+  { en: "How often do you take a short movement break after sitting for a while?", bn: "অনেকক্ষণ বসে থাকার পর আপনি কতবার একটু নড়াচড়ার বিরতি নেন?", category: 0 },
+  { en: "How much do you choose activities you genuinely enjoy?", bn: "নিজের ভালো লাগে এমন শারীরিক কাজ আপনি কতটা বেছে নেন?", category: 0 },
+  { en: "How well do you adapt activity to your energy and needs that day?", bn: "সেদিনের শক্তি ও প্রয়োজন বুঝে আপনি কতটা চলাফেরা মানিয়ে নেন?", category: 0 },
+  { en: "How often do you include some comfortable movement in a usual week?", bn: "সাধারণ এক সপ্তাহে আপনি কতবার স্বাচ্ছন্দ্যকর কিছু চলাফেরা রাখেন?", category: 0 },
+  { en: "How much do you keep a calming routine around bedtime?", bn: "ঘুমানোর আগে শান্ত হওয়ার কোনো অভ্যাস আপনি কতটা বজায় রাখেন?", category: 1 },
+  { en: "How often do you wake feeling reasonably rested?", bn: "ঘুম থেকে উঠে আপনি কতবার মোটামুটি সতেজ বোধ করেন?", category: 1 },
+  { en: "How much do you take breaks during a demanding day?", bn: "ব্যস্ত দিনে আপনি কতটা বিরতি নেওয়ার চেষ্টা করেন?", category: 1 },
+  { en: "How often do you use a helpful way to unwind, such as a hobby or quiet time?", bn: "শখ বা নিরিবিলি সময়ের মতো কোনো উপায়ে আপনি কতবার মন হালকা করেন?", category: 1 },
+  { en: "How well do you make your daily pace manageable when possible?", bn: "সম্ভব হলে নিজের দিনের গতি সামলানোর মতো রাখতে আপনি কতটা পারেন?", category: 1 },
+  { en: "How much variety do you include in your meals when available?", bn: "সুযোগ থাকলে খাবারে নানা ধরনের খাবার রাখতে আপনি কতটা চেষ্টা করেন?", category: 2 },
+  { en: "How often do you include fruit, vegetables, or other nourishing foods?", bn: "আপনি কতবার ফল, শাকসবজি বা পুষ্টিকর খাবার খান?", category: 2 },
+  { en: "How well do you drink fluids in a way that suits your needs and day?", bn: "নিজের প্রয়োজন ও দিনের পরিস্থিতি অনুযায়ী তরল পান করতে আপনি কতটা খেয়াল রাখেন?", category: 2 },
+  { en: "How much do you make food choices that leave you feeling cared for?", bn: "নিজের যত্ন হয়েছে—এমন অনুভূতি দেয় এমন খাবার বেছে নিতে আপনি কতটা পারেন?", category: 2 },
+  { en: "How often do you approach eating with flexibility instead of expecting perfection?", bn: "খাবার নিয়ে নিখুঁত হওয়ার চাপ না দিয়ে আপনি কতবার নমনীয় থাকেন?", category: 2 },
+  { en: "How often do you make time for activities that bring you joy?", bn: "আনন্দ দেয় এমন কাজের জন্য আপনি কতবার সময় রাখেন?", category: 3 },
+  { en: "How comfortable are you talking with someone you trust when life feels difficult?", bn: "সময় কঠিন লাগলে বিশ্বাসের কারও সঙ্গে কথা বলতে আপনি কতটা স্বচ্ছন্দ?", category: 3 },
+  { en: "How much do you protect time for rest and personal boundaries?", bn: "বিশ্রাম ও ব্যক্তিগত সীমারেখার জন্য সময় রাখতে আপনি কতটা পারেন?", category: 3 },
+  { en: "How readily do you look for support when you feel you need it?", bn: "সহায়তা দরকার মনে হলে তা খুঁজতে আপনি কতটা প্রস্তুত?", category: 3 },
+  { en: "How kindly do you speak to yourself after a difficult day?", bn: "কঠিন দিনের পর আপনি নিজের সঙ্গে কতটা সদয়ভাবে কথা বলেন?", category: 3 },
+  { en: "How well do you keep up with routine care that fits your own needs?", bn: "নিজের প্রয়োজন অনুযায়ী নিয়মিত স্বাস্থ্যসেবার খোঁজ রাখতে আপনি কতটা পারেন?", category: 4 },
+  { en: "How comfortable are you asking a qualified health professional about concerns?", bn: "স্বাস্থ্য নিয়ে উদ্বেগ হলে যোগ্য স্বাস্থ্যকর্মীকে জিজ্ঞেস করতে আপনি কতটা স্বচ্ছন্দ?", category: 4 },
+  { en: "If you are prescribed medicine, how carefully do you follow the clinician’s instructions?", bn: "ওষুধ দেওয়া হলে চিকিৎসকের নির্দেশ আপনি কতটা মেনে চলেন?", category: 4 },
+  { en: "How often do you take practical steps to keep your everyday spaces and routines safer?", bn: "দৈনন্দিন জায়গা ও অভ্যাস নিরাপদ রাখতে আপনি কতবার বাস্তব পদক্ষেপ নেন?", category: 4 },
+  { en: "How much time do you make for supportive connection with other people?", bn: "অন্যদের সঙ্গে সহায়ক সম্পর্কের জন্য আপনি কতটা সময় রাখেন?", category: 4 },
+];
 let certificateTemplate = "classic";
 const certificateTemplates = [
   { id: "classic", en: "Rose classic", bn: "রোজ ক্লাসিক", background: "#fff8f5", border: "#e8b8bd", accent: "#d85570", title: "#392b30" },
@@ -170,8 +204,8 @@ function applyLanguage() {
   const strings = translations[language];
   document.documentElement.lang = language === "bn" ? "bn" : "en";
   document.body.classList.toggle("lang-bn", language === "bn");
-  document.querySelector("#brand-title").textContent = language === "bn" ? "বুলবুলির হিসাব" : "Bulbuli’s calculation";
-  document.querySelector(".brand").setAttribute("aria-label", language === "bn" ? "বুলবুলির হিসাবের মূলপাতা" : "Bulbuli’s calculation home");
+  document.querySelector("#brand-title").textContent = language === "bn" ? "বুলবুলি" : "Bulbuli";
+  document.querySelector(".brand").setAttribute("aria-label", language === "bn" ? "বুলবুলির মূলপাতা" : "Bulbuli home");
   document.querySelector("#top-note").textContent = strings.topNote;
   document.querySelector("#eyebrow-text").textContent = strings.eyebrow;
   document.querySelector("#intro-title").innerHTML = strings.introTitle;
@@ -179,17 +213,22 @@ function applyLanguage() {
   document.querySelector("#meta-questions").innerHTML = strings.metaQuestions;
   document.querySelector("#meta-time").innerHTML = strings.metaTime;
   document.querySelector("#meta-fun").innerHTML = strings.metaFun;
-  document.querySelector("#start-title").textContent = strings.startTitle;
-  document.querySelector("#start-copy").textContent = strings.startCopy;
-  document.querySelector("#start-button").innerHTML = `${strings.startButton} <span>→</span>`;
+  const startTitle = document.querySelector("#start-title");
+  if (startTitle) startTitle.textContent = strings.startTitle;
+  const startCopy = document.querySelector("#start-copy");
+  if (startCopy) startCopy.textContent = strings.startCopy;
+  const startButton = document.querySelector("#start-button");
+  if (startButton) startButton.innerHTML = `${strings.startButton} <span>→</span>`;
   const personalityStart = document.querySelector("#personality-start-button");
   if (personalityStart) personalityStart.innerHTML = `${language === "bn" ? "ব্যক্তিত্ব কুইজ" : "Personality Quiz"} <span>→</span>`;
+  const wellnessStart = document.querySelector("#wellness-start-button");
+  if (wellnessStart) wellnessStart.innerHTML = `${language === "bn" ? "স্বাস্থ্য কুইজ" : "Health Quiz"} <span>→</span>`;
   renderFooterCount();
   document.querySelector("#footer-private").textContent = language === "bn" ? "আপনার উত্তর ও ছবি এই ডিভাইসেই থাকে" : "Your answers and photos stay on this device";
   const toggle = document.querySelector("#language-toggle");
   toggle.textContent = strings.toggle;
   toggle.setAttribute("aria-label", language === "en" ? "বাংলায় পরিবর্তন করুন" : "Switch to English");
-  document.title = language === "bn" ? "বুলবুলির হিসাব" : "Bulbuli’s calculation";
+  document.title = language === "bn" ? "বুলবুলি" : "Bulbuli";
   if (screen === "start") {
     stepLabel.textContent = language === "bn" ? "আপনার প্রশ্নগুলো" : "YOUR QUESTIONS";
     progressLabel.textContent = t("ready");
@@ -199,6 +238,8 @@ function applyLanguage() {
   if (screen === "result") renderResults();
   if (screen === "personality-question") renderPersonalityQuestion();
   if (screen === "personality-result") renderPersonalityResults();
+  if (screen === "wellness-question") renderWellnessQuestion();
+  if (screen === "wellness-result") renderWellnessResults();
 }
 
 document.querySelector("#language-toggle").addEventListener("click", () => {
@@ -210,8 +251,15 @@ applyLanguage();
 document.querySelector("#start-button").addEventListener("click", renderNameForm);
 document.querySelector("#personality-start-button").addEventListener("click", () => {
   personalityMode = true;
+  wellnessMode = false;
   personalityAnswers = [];
   personalityProfile = null;
+  renderNameForm();
+});
+document.querySelector("#wellness-start-button").addEventListener("click", () => {
+  personalityMode = false;
+  wellnessMode = true;
+  wellnessAnswers = [];
   renderNameForm();
 });
 
@@ -220,70 +268,86 @@ function renderNameForm() {
   stepLabel.textContent = t("nameIntro");
   progressLabel.textContent = t("beforeBegin");
   const nameFormTitle = personalityMode
-    ? (language === "bn" ? "কার ব্যক্তিত্ব জানতে চান?" : "Whose personality are you curious about?")
+    ? (language === "bn" ? "নিজের ব্যক্তিত্ব যাচাই করুন" : "Test your personality")
+    : wellnessMode
+      ? (language === "bn" ? "নিজের স্বাস্থ্য যাচাই করুন" : "Test your health")
     : t("nameTitle");
   const nameFormCopy = personalityMode
-    ? (language === "bn" ? "একটি নাম লিখুন এবং চাইলে একটি ছবি যোগ করুন।" : "Enter one name and add a single optional photo.")
+    ? (language === "bn" ? "আপনার নাম লিখুন এবং সার্টিফিকেটের জন্য চাইলে একটি ছবি যোগ করুন।" : "Enter your name and optionally add a photo for your certificate.")
+    : wellnessMode
+      ? (language === "bn" ? "আপনার নাম লিখুন এবং চাইলে সার্টিফিকেটের জন্য একটি ছবি যোগ করুন। এটি চিকিৎসা মূল্যায়ন নয়—শুধু দৈনন্দিন অভ্যাস নিয়ে ভাবনার জন্য।" : "Enter your name and optionally add a photo for your certificate. This reflects on everyday habits, not a medical assessment.")
     : t("nameCopy");
+  const mascotImage = wellnessMode ? "bulbuli-health.png" : personalityMode ? "bulbuli-personality.png" : "bulbuli-pair.png";
+  const mascotClass = personalityMode || wellnessMode ? "quiz-mascot single-mascot" : "quiz-mascot";
   content.innerHTML = `
-    <form class="name-form" id="name-form">
-      <div class="big-heart" aria-hidden="true">♥</div>
+    <form class="name-form" id="name-form" novalidate>
+      <div class="big-heart ${mascotClass}" aria-hidden="true"><img src="${mascotImage}" alt="" /></div>
       <h2>${nameFormTitle}</h2>
       <p>${nameFormCopy}</p>
       <div class="person-entry">
         <div class="photo-preview" id="user-photo-preview">${photoMarkup(photos.user, userName)}</div>
         <div class="person-fields">
-          <label for="your-name">${personalityMode ? (language === "bn" ? "নাম" : "Name") : t("yourName")}</label>
-          <input id="your-name" name="yourName" maxlength="50" autocomplete="given-name" placeholder="${personalityMode ? (language === "bn" ? "যেমন: রিয়া" : "e.g. Riley") : t("yourPlaceholder")}" value="${escapeHtml(userName)}" required />
-          <label class="photo-picker">${photos.user ? photoCopy[language].change : photoCopy[language].choose}<input id="user-photo" type="file" accept="image/jpeg,image/png,image/webp" /></label>
+          <label for="your-name">${personalityMode || wellnessMode ? (language === "bn" ? "আপনার নাম" : "Your name") : t("yourName")}</label>
+          <input id="your-name" name="yourName" maxlength="50" autocomplete="given-name" placeholder="${personalityMode || wellnessMode ? (language === "bn" ? "যেমন: রিয়া" : "e.g. Riley") : t("yourPlaceholder")}" value="${escapeHtml(userName)}" required />
+          <label class="photo-picker">${photos.user ? photoCopy[language].change : (language === "bn" ? "কার্ডে ছবি যোগ করুন (ঐচ্ছিক)" : "Add a photo to your card (optional)")}<input id="user-photo" type="file" accept="image/jpeg,image/png,image/webp" /></label>
         </div>
       </div>
-      ${personalityMode ? "" : `<div class="person-entry">
+      ${personalityMode || wellnessMode ? "" : `<div class="person-entry">
         <div class="photo-preview" id="beloved-photo-preview">${photoMarkup(photos.beloved, belovedName)}</div>
         <div class="person-fields">
           <label for="beloved-name">${t("belovedName")}</label>
           <input id="beloved-name" name="belovedName" maxlength="50" placeholder="${t("belovedPlaceholder")}" value="${escapeHtml(belovedName)}" required />
-          <label class="photo-picker">${photos.beloved ? photoCopy[language].change : photoCopy[language].choose}<input id="beloved-photo" type="file" accept="image/jpeg,image/png,image/webp" /></label>
-        </div>
-      </div>
-      <div class="person-entry couple-entry">
-        <div class="photo-preview" id="couple-photo-preview">${photoMarkup(photos.couple, "♥")}</div>
-        <div class="person-fields">
-          <label>${language === "bn" ? "আপনাদের দুজনের ছবি" : "A photo of you together"}</label>
-          <label class="photo-picker">${photos.couple ? photoCopy[language].change : photoCopy[language].couple}<input id="couple-photo" type="file" accept="image/jpeg,image/png,image/webp" /></label>
         </div>
       </div>`}
       <p class="photo-error" id="photo-error" role="status"></p>
-      <button class="primary-button" type="submit">${personalityMode ? (language === "bn" ? "কুইজ শুরু করুন" : "Start the quiz") : t("continue")} <span>→</span></button>
+      <button class="primary-button" type="submit">${personalityMode || wellnessMode ? (language === "bn" ? "কুইজ শুরু করুন" : "Start the quiz") : t("continue")} <span>→</span></button>
     </form>`;
   document.querySelector("#name-form").addEventListener("submit", (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    userName = String(data.get("yourName")).trim();
-    belovedName = personalityMode ? "" : String(data.get("belovedName")).trim();
-    if (!userName || (!personalityMode && !belovedName)) return;
+    const enteredUserName = String(data.get("yourName") || "").trim();
+    const enteredBelovedName = personalityMode || wellnessMode ? "" : String(data.get("belovedName") || "").trim();
+    const invalidUserName = !isValidName(enteredUserName);
+    const invalidBelovedName = !personalityMode && !wellnessMode && !isValidName(enteredBelovedName);
+    if (invalidUserName || invalidBelovedName) {
+      document.querySelector("#photo-error").textContent = language === "bn"
+        ? "নামে অন্তত ৩টি বর্ণ থাকতে হবে; শুধু বর্ণ ও ফাঁক ব্যবহার করুন।"
+        : "Names need at least 3 letters and may contain only letters and spaces.";
+      document.querySelector(invalidUserName ? "#your-name" : "#beloved-name").focus();
+      return;
+    }
+    document.querySelector("#photo-error").textContent = "";
+    userName = enteredUserName;
+    belovedName = enteredBelovedName;
     current = 0;
     if (personalityMode) renderPersonalityQuestion();
+    else if (wellnessMode) renderWellnessQuestion();
     else renderQuestion();
   });
   document.querySelector("#your-name").addEventListener("input", (event) => {
     userName = event.currentTarget.value;
+    document.querySelector("#photo-error").textContent = "";
     if (!photos.user) document.querySelector("#user-photo-preview").innerHTML = photoMarkup(null, userName);
   });
   document.querySelector("#user-photo").addEventListener("change", (event) => handlePhotoChange(event, "user"));
-  if (!personalityMode) {
+  if (!personalityMode && !wellnessMode) {
     document.querySelector("#beloved-name").addEventListener("input", (event) => {
       belovedName = event.currentTarget.value;
+      document.querySelector("#photo-error").textContent = "";
       if (!photos.beloved) document.querySelector("#beloved-photo-preview").innerHTML = photoMarkup(null, belovedName);
     });
-    document.querySelector("#beloved-photo").addEventListener("change", (event) => handlePhotoChange(event, "beloved"));
-    document.querySelector("#couple-photo").addEventListener("change", (event) => handlePhotoChange(event, "couple"));
   }
   document.querySelector("#your-name").focus();
 }
 
 function photoMarkup(photo, name) {
   return photo ? `<img src="${photo}" alt="" />` : `<span>${escapeHtml(name.trim().charAt(0) || "♥")}</span>`;
+}
+
+function isValidName(name) {
+  const trimmed = name.trim();
+  const letters = trimmed.match(/\p{L}/gu) || [];
+  return letters.length >= 3 && /^[\p{L}\p{M}\s]+$/u.test(trimmed);
 }
 
 function handlePhotoChange(event, person) {
@@ -336,8 +400,8 @@ function renderPersonalityQuestion() {
   stepLabel.textContent = language === "bn" ? `ব্যক্তিত্ব ${formatNumber(current + 1)} / ${formatNumber(personalityQuestions.length)}` : `PERSONALITY ${current + 1} / ${personalityQuestions.length}`;
   progressLabel.textContent = `${formatNumber(Math.round((current / personalityQuestions.length) * 100))}% ${language === "bn" ? "সম্পন্ন" : "complete"}`;
   fill.style.width = `${(current / personalityQuestions.length) * 100}%`;
-  const prompt = (language === "bn" ? question.bn : question.en).replaceAll("{name}", escapeHtml(userName));
-  content.innerHTML = `<div class="question-wrap"><span class="category">${language === "bn" ? "ব্যক্তিত্বের ধরন" : "A personality snapshot"}</span><h2 class="question">${prompt}</h2><p class="hint">${language === "bn" ? "নাম লেখা মানুষটির সঙ্গে কতটা মেলে—তা বেছে নিন।" : "Choose how much each statement fits the person whose name you entered."}</p><div class="answers" role="group" aria-label="${t("answerGroup")}">${t("choices").map((choice, index) => `<button class="answer" data-value="${choices[index].value}"><span class="answer-dot">${formatNumber(index + 1)}</span>${choice}</button>`).join("")}</div><div class="quiz-nav"><button class="text-button" id="back-button" ${current === 0 ? "disabled" : ""}>${t("back")}</button><button class="text-button" id="skip-button">${t("skip")}</button></div></div>`;
+  const prompt = language === "bn" ? question.bn : question.en;
+  content.innerHTML = `<div class="question-wrap"><span class="category">${language === "bn" ? "ব্যক্তিত্বের ধরন" : "A personality snapshot"}</span><h2 class="question">${prompt}</h2><p class="hint">${language === "bn" ? "নিজের সঙ্গে কতটা মেলে, তা বেছে নিন।" : "Choose how much each statement describes you."}</p><div class="answers" role="group" aria-label="${t("answerGroup")}">${t("choices").map((choice, index) => `<button class="answer" data-value="${choices[index].value}"><span class="answer-dot">${formatNumber(index + 1)}</span>${choice}</button>`).join("")}</div><div class="quiz-nav"><button class="text-button" id="back-button" ${current === 0 ? "disabled" : ""}>${t("back")}</button><button class="text-button" id="skip-button">${t("skip")}</button></div></div>`;
   content.querySelectorAll(".answer").forEach((button) => button.addEventListener("click", () => choosePersonality(Number(button.dataset.value))));
   document.querySelector("#back-button").addEventListener("click", () => { if (current > 0) { current -= 1; renderPersonalityQuestion(); } });
   document.querySelector("#skip-button").addEventListener("click", () => choosePersonality(null));
@@ -365,8 +429,8 @@ function renderPersonalityResults() {
     : personalityOptions[language][personalityProfile];
   const copy = personalityProfile === null
     ? (language === "bn" ? "সব প্রশ্ন এড়িয়ে গেছেন—একটি উত্তর দিলেই ব্যক্তিত্বের ঝলক তৈরি হবে।" : "You skipped every question. Answer at least one to reveal a personality snapshot.")
-    : personalityDescriptions[language][personalityProfile].replaceAll("{name}", escapeHtml(userName));
-  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${title}</h2><p class="result-copy">${copy}</p><div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer">${language === "bn" ? "এটি উত্তরদাতার ধারণার ভিত্তিতে তৈরি মজার একটি ঝলক—কোনো বৈজ্ঞানিক ব্যক্তিত্ব মূল্যায়ন নয়।" : "A playful snapshot based on the quiz taker’s impressions, not a scientific personality assessment."}</p></div>`;
+    : personalityDescriptions[language][personalityProfile];
+  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${title}</h2><p class="result-copy">${copy}</p><div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer">${language === "bn" ? "এটি আপনার নিজের উত্তরের ভিত্তিতে তৈরি মজার একটি ঝলক—কোনো বৈজ্ঞানিক ব্যক্তিত্ব মূল্যায়ন নয়।" : "A playful snapshot based on your self-reported answers, not a scientific personality assessment."}</p></div>`;
   document.querySelector("#again-button").addEventListener("click", reset);
   document.querySelector("#certificate-button").addEventListener("click", downloadPersonalityCertificate);
 }
@@ -382,38 +446,69 @@ async function downloadPersonalityCertificate() {
       else await document.fonts.load("400 78px 'Great Vibes'", userName);
     }
     if (document.fonts?.ready) await document.fonts.ready;
-    const design = certificateTemplates.find((template) => template.id === certificateTemplate) || certificateTemplates[0];
     const canvas = document.createElement("canvas");
     canvas.width = 1600;
     canvas.height = 1131;
     const context = canvas.getContext("2d");
-    context.fillStyle = design.background;
+    context.fillStyle = "#f2eee9";
     context.fillRect(0, 0, canvas.width, canvas.height);
-    context.strokeStyle = design.border;
-    context.lineWidth = 5;
-    context.strokeRect(42, 42, 1516, 1047);
-    context.lineWidth = 2;
-    context.strokeRect(61, 61, 1478, 1009);
-    context.textAlign = "center";
-    if (photos.user) await drawPortrait(context, photos.user, userName, 800, 310, font, 112);
-    context.fillStyle = design.accent;
+    context.fillStyle = "#ffffff";
+    context.shadowColor = "rgba(52, 37, 33, 0.16)";
+    context.shadowBlur = 34;
+    context.shadowOffsetY = 12;
+    roundedRect(context, 70, 70, 1460, 991, 38);
+    context.fill();
+    context.shadowColor = "transparent";
+    context.shadowBlur = 0;
+    context.shadowOffsetY = 0;
+
+    const photoBox = { x: 112, y: 112, width: 610, height: 907, radius: 26 };
+    context.save();
+    roundedRect(context, photoBox.x, photoBox.y, photoBox.width, photoBox.height, photoBox.radius);
+    context.clip();
+    if (photos.user) {
+      await drawCoverImage(context, photos.user, photoBox.x, photoBox.y, photoBox.width, photoBox.height);
+    } else {
+      const gradient = context.createLinearGradient(photoBox.x, photoBox.y, photoBox.x + photoBox.width, photoBox.y + photoBox.height);
+      gradient.addColorStop(0, "#f8d9d5");
+      gradient.addColorStop(1, "#e7b3ae");
+      context.fillStyle = gradient;
+      context.fillRect(photoBox.x, photoBox.y, photoBox.width, photoBox.height);
+      context.fillStyle = "rgba(255,255,255,0.82)";
+      context.font = language === "bn" ? `600 190px ${font}` : "600 210px 'Playfair Display', Georgia, serif";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.fillText(userName.trim().charAt(0).toUpperCase() || "♥", photoBox.x + photoBox.width / 2, photoBox.y + photoBox.height / 2);
+      context.textBaseline = "alphabetic";
+    }
+    context.restore();
+
+    const textLeft = 800;
+    context.textAlign = "left";
+    context.fillStyle = "#c35c68";
     context.font = `700 25px ${font}`;
-    context.fillText(language === "bn" ? "ব্যক্তিত্বের ছোট্ট সনদ" : "A PERSONALITY SNAPSHOT", 800, photos.user ? 500 : 310);
-    context.fillStyle = design.title;
-    context.font = language === "bn" ? `600 72px ${font}` : "400 96px 'Great Vibes', cursive";
-    context.fillText(userName, 800, photos.user ? 625 : 465, 1160);
+    context.fillText(language === "bn" ? "ব্যক্তিত্বের ছোট্ট ঝলক" : "YOUR PERSONALITY SNAPSHOT", textLeft, 245);
+    context.fillStyle = "#362c2c";
+    context.font = language === "bn" ? `600 72px ${font}` : "400 104px 'Great Vibes', cursive";
+    context.fillText(userName, textLeft, 390, 650);
     const profileTitle = personalityProfile === null
       ? (language === "bn" ? "আরও একটু জানার বাকি" : "A personality profile awaits")
       : personalityOptions[language][personalityProfile];
-    context.fillStyle = design.accent;
+    context.fillStyle = "#a54158";
     context.font = language === "bn" ? `600 54px ${font}` : "600 48px 'Playfair Display', Georgia, serif";
-    context.fillText(profileTitle, 800, photos.user ? 730 : 570, 1250);
+    context.fillText(profileTitle, textLeft, 500, 650);
+    const description = personalityProfile === null
+      ? (language === "bn" ? "আপনার উত্তরের ভিত্তিতে ব্যক্তিত্বের ফল তৈরি হবে।" : "Your answers will shape your personality snapshot.")
+      : personalityDescriptions[language][personalityProfile];
+    context.fillStyle = "#645b5b";
+    context.font = `400 ${language === "bn" ? 27 : 26}px ${font}`;
+    drawWrappedText(context, description, textLeft, 565, 630, 42, 5);
     const date = new Intl.DateTimeFormat(language === "bn" ? "bn-BD" : undefined, { dateStyle: "long" }).format(new Date());
-    context.fillStyle = design.id === "midnight" ? "#d8d0bf" : "#887b7e";
+    context.fillStyle = "#887b7e";
     context.font = `400 23px ${font}`;
-    context.fillText(language === "bn" ? `${date} · শুধুই মজার জন্য` : `Created ${date} · Just for fun`, 800, 900);
+    context.fillText(language === "bn" ? `${date} · শুধুই মজার জন্য` : `Created ${date} · Just for fun`, textLeft, 900);
     context.font = `400 19px ${font}`;
-    context.fillText(language === "bn" ? "উত্তরদাতার ধারণার ভিত্তিতে তৈরি মজার একটি ঝলক—বৈজ্ঞানিক মূল্যায়ন নয়।" : "A playful impression, not a scientific personality assessment.", 800, 958, 1320);
+    context.fillText(language === "bn" ? "মজার জন্য তৈরি একটি ঝলক—বৈজ্ঞানিক মূল্যায়ন নয়।" : "A playful impression, not a scientific personality assessment.", textLeft, 950, 650);
     const jpeg = dataUrlToBytes(canvas.toDataURL("image/jpeg", 0.94));
     const pdf = makeImagePdf(jpeg, canvas.width, canvas.height);
     const url = URL.createObjectURL(pdf);
@@ -424,6 +519,206 @@ async function downloadPersonalityCertificate() {
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   } catch (error) {
     console.error("Could not create the personality certificate PDF", error);
+    button.textContent = t("pdfFailed");
+    button.disabled = false;
+    return;
+  }
+  button.textContent = t("downloaded");
+  window.setTimeout(() => { button.innerHTML = `${t("certificate")} <span>↓</span>`; button.disabled = false; }, 2500);
+}
+
+function roundedRect(context, x, y, width, height, radius) {
+  context.beginPath();
+  context.moveTo(x + radius, y);
+  context.arcTo(x + width, y, x + width, y + height, radius);
+  context.arcTo(x + width, y + height, x, y + height, radius);
+  context.arcTo(x, y + height, x, y, radius);
+  context.arcTo(x, y, x + width, y, radius);
+  context.closePath();
+}
+
+function drawPhotoCardShell(context, accent = "#c35c68") {
+  context.fillStyle = "#f2eee9";
+  context.fillRect(0, 0, 1600, 1131);
+  context.fillStyle = "#ffffff";
+  context.shadowColor = "rgba(52, 37, 33, 0.16)";
+  context.shadowBlur = 34;
+  context.shadowOffsetY = 12;
+  roundedRect(context, 70, 70, 1460, 991, 38);
+  context.fill();
+  context.shadowColor = "transparent";
+  context.shadowBlur = 0;
+  context.shadowOffsetY = 0;
+  context.fillStyle = accent;
+  roundedRect(context, 112, 112, 610, 907, 26);
+  context.fill();
+}
+
+async function drawPhotoCardImageOrMonogram(context, photo, name, font) {
+  const x = 112;
+  const y = 112;
+  const width = 610;
+  const height = 907;
+  context.save();
+  roundedRect(context, x, y, width, height, 26);
+  context.clip();
+  if (photo) {
+    try {
+      await drawCoverImage(context, photo, x, y, width, height);
+    } catch {
+      drawPhotoMonogram(context, name, font, x, y, width, height);
+    }
+  } else {
+    drawPhotoMonogram(context, name, font, x, y, width, height);
+  }
+  context.restore();
+}
+
+function drawPhotoMonogram(context, name, font, x, y, width, height) {
+  const gradient = context.createLinearGradient(x, y, x + width, y + height);
+  gradient.addColorStop(0, "#f8d9d5");
+  gradient.addColorStop(1, "#e7b3ae");
+  context.fillStyle = gradient;
+  context.fillRect(x, y, width, height);
+  context.fillStyle = "rgba(255,255,255,0.82)";
+  context.font = `600 ${font.includes("Noto Sans Bengali") ? 190 : 210}px ${font}`;
+  context.textAlign = "center";
+  context.textBaseline = "middle";
+  context.fillText(name.trim().charAt(0).toLocaleUpperCase() || "♥", x + width / 2, y + height / 2);
+  context.textBaseline = "alphabetic";
+}
+
+async function drawCoverImage(context, dataUrl, x, y, width, height) {
+  const image = new Image();
+  await new Promise((resolve, reject) => {
+    image.onload = resolve;
+    image.onerror = reject;
+    image.src = dataUrl;
+  });
+  const scale = Math.max(width / image.width, height / image.height);
+  const drawWidth = image.width * scale;
+  const drawHeight = image.height * scale;
+  context.drawImage(image, x + (width - drawWidth) / 2, y + (height - drawHeight) / 2, drawWidth, drawHeight);
+}
+
+function drawWrappedText(context, text, x, y, maxWidth, lineHeight, maxLines) {
+  const words = String(text).split(/\s+/);
+  let line = "";
+  let lines = 0;
+  for (const word of words) {
+    const candidate = line ? `${line} ${word}` : word;
+    if (line && context.measureText(candidate).width > maxWidth) {
+      context.fillText(line, x, y + lines * lineHeight);
+      lines += 1;
+      if (lines >= maxLines) return;
+      line = word;
+    } else {
+      line = candidate;
+    }
+  }
+  if (line && lines < maxLines) context.fillText(line, x, y + lines * lineHeight);
+}
+
+function renderWellnessQuestion() {
+  screen = "wellness-question";
+  const question = wellnessQuestions[current];
+  stepLabel.textContent = language === "bn" ? `সুস্থতা ${formatNumber(current + 1)} / ${formatNumber(wellnessQuestions.length)}` : `WELLNESS ${current + 1} / ${wellnessQuestions.length}`;
+  progressLabel.textContent = `${formatNumber(Math.round((current / wellnessQuestions.length) * 100))}% ${language === "bn" ? "সম্পন্ন" : "complete"}`;
+  fill.style.width = `${(current / wellnessQuestions.length) * 100}%`;
+  const prompt = language === "bn" ? question.bn : question.en;
+  const category = wellnessCategoryTranslations[language][question.category];
+  content.innerHTML = `<div class="question-wrap"><span class="category">${category}</span><h2 class="question">${prompt}</h2><p class="hint">${language === "bn" ? "আপনার দৈনন্দিন অভ্যাসের সঙ্গে কতটা মেলে, তা বেছে নিন।" : "Choose how much each statement reflects your usual routines."}</p><div class="answers" role="group" aria-label="${t("answerGroup")}">${t("choices").map((choice, index) => `<button class="answer" data-value="${choices[index].value}"><span class="answer-dot">${formatNumber(index + 1)}</span>${choice}</button>`).join("")}</div><div class="quiz-nav"><button class="text-button" id="back-button" ${current === 0 ? "disabled" : ""}>${t("back")}</button><button class="text-button" id="skip-button">${t("skip")}</button></div></div>`;
+  content.querySelectorAll(".answer").forEach((button) => button.addEventListener("click", () => chooseWellness(Number(button.dataset.value))));
+  document.querySelector("#back-button").addEventListener("click", () => { if (current > 0) { current -= 1; renderWellnessQuestion(); } });
+  document.querySelector("#skip-button").addEventListener("click", () => chooseWellness(null));
+}
+
+function chooseWellness(value) {
+  wellnessAnswers[current] = value;
+  if (current < wellnessQuestions.length - 1) { current += 1; renderWellnessQuestion(); return; }
+  renderWellnessResults();
+}
+
+function renderWellnessResults() {
+  screen = "wellness-result";
+  stepLabel.textContent = language === "bn" ? "দৈনন্দিন সুস্থতার ঝলক" : "WELLNESS REFLECTION";
+  progressLabel.textContent = t("complete");
+  fill.style.width = "100%";
+  const scores = wellnessCategories.map((_, category) => {
+    const values = wellnessQuestions.map((question, index) => question.category === category ? wellnessAnswers[index] : null).filter((value) => value !== null);
+    const average = values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+    return { category, average };
+  });
+  const hasAnswers = wellnessAnswers.some((value) => value !== null && value !== undefined);
+  const summary = hasAnswers
+    ? (language === "bn" ? "এগুলো আপনার বেছে নেওয়া অভ্যাসের একটি সাধারণ ঝলক। ছোট ছোট পরিবর্তন নিয়েও ভাবতে পারেন, তবে আপনার প্রয়োজন ব্যক্তিভেদে আলাদা।" : "These are a simple reflection of the routines you selected. You might use them to notice habits you want to nurture; needs differ from person to person.")
+    : (language === "bn" ? "কোনো প্রশ্নের উত্তর দেওয়া হয়নি, তাই অভ্যাসের ঝলক দেখানো যাচ্ছে না।" : "No questions were answered, so there is no routine snapshot to show.");
+  const categories = scores.map((item) => `<div class="category-row"><span>${wellnessCategoryTranslations[language][item.category]}</span><div class="mini-track"><div class="mini-fill" style="width:${item.average === null ? 0 : Math.round((item.average / 5) * 100)}%"></div></div><span class="category-value">${item.average === null ? "—" : `${formatNumber(Number(item.average.toFixed(1)))} / 5`}</span></div>`).join("");
+  const scaleLabel = language === "bn" ? "দৈনন্দিন অভ্যাসের স্ব-প্রতিবেদিত মিল (১–৫)" : "Self-reported fit of these routines (1–5)";
+  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "সুস্থতার ঝলক" : "WELLNESS SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${language === "bn" ? "দৈনন্দিন সুস্থতার প্রতিফলন" : "Everyday wellness reflection"}</h2><p class="result-copy">${summary}</p><p class="hint">${scaleLabel}</p><div class="category-scores">${categories}</div><div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer">${language === "bn" ? "এটি কোনো স্বাস্থ্য স্কোর, রোগ নির্ণয় বা চিকিৎসা পরামর্শ নয়। স্বাস্থ্য নিয়ে প্রশ্ন থাকলে যোগ্য স্বাস্থ্যসেবা পেশাজীবীর সঙ্গে কথা বলুন।" : "This is not a health score, diagnosis, or medical advice. For personal health concerns, speak with a qualified health professional."}</p></div>`;
+  document.querySelector("#again-button").addEventListener("click", reset);
+  document.querySelector("#certificate-button").addEventListener("click", downloadWellnessCertificate);
+}
+
+function wellnessCertificateCategory() {
+  const values = wellnessAnswers.filter((value) => Number.isInteger(value) && value >= 1 && value <= 5);
+  if (!values.length) return { en: "Not enough answers", bn: "উত্তর যথেষ্ট নয়" };
+  const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+  const index = average >= 4.5 ? 0 : average >= 3.8 ? 1 : average >= 3.1 ? 2 : average >= 2.4 ? 3 : 4;
+  return {
+    en: ["Athletic", "Very fit", "Healthy", "Moderately fit", "Needs improvement"][index],
+    bn: ["অ্যাথলেটিক", "খুব ফিট", "সুস্থ", "মাঝারি ফিট", "উন্নতির সুযোগ"][index],
+  };
+}
+
+async function downloadWellnessCertificate() {
+  const button = document.querySelector("#certificate-button");
+  button.disabled = true;
+  button.textContent = t("preparing");
+  try {
+    const font = language === "bn" ? "'Noto Sans Bengali', 'Vrinda', sans-serif" : "'DM Sans', sans-serif";
+    if (document.fonts?.load) {
+      if (language === "bn") await document.fonts.load("400 24px 'Noto Sans Bengali'", "সুস্থতার প্রতিফলন");
+      else await document.fonts.load("400 78px 'Great Vibes'", userName);
+    }
+    if (document.fonts?.ready) await document.fonts.ready;
+    const wellnessClass = wellnessCertificateCategory();
+    const canvas = document.createElement("canvas");
+    canvas.width = 1600;
+    canvas.height = 1131;
+    const context = canvas.getContext("2d");
+    drawPhotoCardShell(context);
+    await drawPhotoCardImageOrMonogram(context, photos.user, userName, font);
+    const textLeft = 800;
+    context.textAlign = "left";
+    context.fillStyle = "#4e7865";
+    context.font = `700 25px ${font}`;
+    context.fillText(language === "bn" ? "আপনার স্বাস্থ্য কার্ড" : "YOUR HEALTH SNAPSHOT", textLeft, 240);
+    context.fillStyle = "#263d34";
+    context.font = language === "bn" ? `600 72px ${font}` : "400 96px 'Great Vibes', cursive";
+    context.fillText(userName, textLeft, 390, 650);
+    context.fillStyle = "#4e7865";
+    context.font = `500 24px ${font}`;
+    context.fillText(language === "bn" ? "আপনার সুস্থতার শ্রেণি" : "YOUR WELLNESS CATEGORY", textLeft, 495, 650);
+    context.fillStyle = "#263d34";
+    context.font = language === "bn" ? `600 48px ${font}` : "600 54px 'Playfair Display', Georgia, serif";
+    context.fillText(wellnessClass[language], textLeft, 575, 650);
+    const date = new Intl.DateTimeFormat(language === "bn" ? "bn-BD" : undefined, { dateStyle: "long" }).format(new Date());
+    context.fillStyle = "#887b7e";
+    context.font = `400 23px ${font}`;
+    context.fillText(language === "bn" ? `${date} · শুধুই ভাবনার জন্য` : `Created ${date} · For reflection`, textLeft, 890);
+    context.font = `400 19px ${font}`;
+    drawWrappedText(context, language === "bn" ? "এই শ্রেণি কেবল কুইজের স্ব-প্রতিবেদিত উত্তরের ভিত্তিতে; এটি ফিটনেস পরীক্ষা, চিকিৎসা মূল্যায়ন বা রোগ নির্ণয় নয়।" : "Based only on self-reported quiz answers; not a fitness test, medical assessment, or diagnosis.", textLeft, 945, 650, 29, 3);
+    const jpeg = dataUrlToBytes(canvas.toDataURL("image/jpeg", 0.94));
+    const pdf = makeImagePdf(jpeg, canvas.width, canvas.height);
+    const url = URL.createObjectURL(pdf);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `wellness-${safeFilename(userName)}.pdf`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch (error) {
+    console.error("Could not create the wellness certificate PDF", error);
     button.textContent = t("pdfFailed");
     button.disabled = false;
     return;
@@ -496,60 +791,46 @@ async function downloadCertificate(score, hasScore) {
     canvas.height = 1131;
     const context = canvas.getContext("2d");
     const design = certificateTemplates.find((template) => template.id === certificateTemplate) || certificateTemplates[0];
-    context.fillStyle = design.background;
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    context.strokeStyle = design.border;
-    context.lineWidth = 4;
-    context.strokeRect(42, 42, canvas.width - 84, canvas.height - 84);
-    context.strokeStyle = design.border;
-    context.lineWidth = 2;
-    context.strokeRect(61, 61, canvas.width - 122, canvas.height - 122);
-    context.fillStyle = design.id === "midnight" ? "#343d52" : `${design.accent}22`;
-    context.beginPath(); context.arc(800, 293, 135, 0, Math.PI * 2); context.fill();
-    context.textAlign = "center";
     const banglaFont = language === "bn" ? "'Noto Sans Bengali', 'Vrinda', sans-serif" : "'DM Sans', sans-serif";
+    drawPhotoCardShell(context, design.accent);
+    await drawPhotoCardImageOrMonogram(context, photos.user, userName, banglaFont);
+    context.textAlign = "left";
+    const textLeft = 800;
     const displayDate = new Intl.DateTimeFormat(language === "bn" ? "bn-BD" : undefined, { dateStyle: "long" }).format(new Date());
-    if (photos.couple) {
-      await drawPortrait(context, photos.couple, "♥", 800, 293, banglaFont, 102);
-    } else {
-      context.fillStyle = "#d85570";
-      context.font = `700 58px ${banglaFont}`;
-      context.fillText("♥", 800, 315);
-    }
     context.fillStyle = design.accent;
     context.font = `700 24px ${banglaFont}`;
     context.letterSpacing = "7px";
-    context.fillText(t("certEyebrow"), 800, 474);
+    context.fillText(t("certEyebrow"), textLeft, 230, 680);
     context.letterSpacing = "0px";
     context.fillStyle = design.title;
     context.font = language === "bn" ? `600 72px ${banglaFont}` : "600 76px 'Playfair Display', Georgia, serif";
-    context.fillText(t("certTitle"), 800, 581);
+    context.fillText(t("certTitle"), textLeft, 330, 680);
     context.fillStyle = "#887b7e";
     context.font = `400 28px ${banglaFont}`;
-    context.fillText(t("certBetween"), 800, 644);
+    context.fillText(t("certBetween"), textLeft, 395);
     context.fillStyle = design.accent;
     context.font = language === "bn" ? `600 54px ${banglaFont}` : "400 78px 'Great Vibes', cursive";
-    await drawPortrait(context, photos.user, userName, 405, 742, banglaFont);
-    await drawPortrait(context, photos.beloved, belovedName, 1195, 742, banglaFont);
-    context.textAlign = "center";
-    context.fillText(userName, 615, 750, 350);
+    context.fillText(userName, textLeft, 535, 290);
     context.fillStyle = design.accent;
-    context.font = "700 42px sans-serif";
-    context.fillText("♥", 800, 750);
+    context.font = `700 38px ${banglaFont}`;
+    context.fillText("♥", textLeft + 310, 535);
     context.fillStyle = design.accent;
     context.font = language === "bn" ? `600 54px ${banglaFont}` : "400 78px 'Great Vibes', cursive";
-    context.fillText(belovedName, 985, 750, 350);
+    context.fillText(belovedName, textLeft + 370, 535, 280);
+    context.fillStyle = "#887b7e";
+    context.font = `400 23px ${banglaFont}`;
+    context.fillText(language === "bn" ? "আপনাদের ভালোবাসার ঝলক" : "YOUR CONNECTION SNAPSHOT", textLeft, 620);
     context.fillStyle = design.accent;
     context.font = `700 92px ${banglaFont}`;
-    context.fillText(hasScore ? `${formatNumber(score)}%` : "♡", 800, 900);
-    context.fillStyle = design.id === "midnight" ? "#d8d0bf" : "#887b7e";
+    context.fillText(hasScore ? `${formatNumber(score)}%` : "♡", textLeft, 755);
+    context.fillStyle = "#887b7e";
     context.font = `500 22px ${banglaFont}`;
-    context.fillText(hasScore ? t("certScore") : t("certBlank"), 800, 945);
-    context.fillStyle = design.id === "midnight" ? "#c6bdad" : "#9a8b8e";
+    context.fillText(hasScore ? t("certScore") : t("certBlank"), textLeft, 805, 650);
+    context.fillStyle = "#9a8b8e";
     context.font = `400 20px ${banglaFont}`;
-    context.fillText(language === "bn" ? `${displayDate} · ${t("justForFun")}` : `Created ${displayDate} · ${t("justForFun")}`, 800, 1020);
+    context.fillText(language === "bn" ? `${displayDate} · ${t("justForFun")}` : `Created ${displayDate} · ${t("justForFun")}`, textLeft, 920);
     context.font = `400 16px ${banglaFont}`;
-    context.fillText(t("certDisclaimer"), 800, 1064);
+    drawWrappedText(context, t("certDisclaimer"), textLeft, 967, 670, 25, 3);
 
     const jpeg = dataUrlToBytes(canvas.toDataURL("image/jpeg", 0.94));
     const pdf = makeImagePdf(jpeg, canvas.width, canvas.height);
@@ -661,7 +942,9 @@ function reset() {
   answers.fill(null);
   personalityAnswers = [];
   personalityProfile = null;
+  wellnessAnswers = [];
   personalityMode = false;
+  wellnessMode = false;
   current = -1;
   userName = "";
   belovedName = "";
@@ -672,12 +955,19 @@ function reset() {
   stepLabel.textContent = language === "bn" ? "আপনার প্রশ্নগুলো" : "YOUR QUESTIONS";
   progressLabel.textContent = t("ready");
   fill.style.width = "0";
-  content.innerHTML = `<div class="start-state"><div class="big-heart" aria-hidden="true">♥</div><h2 id="start-title">${t("startTitle")}</h2><p id="start-copy">${t("startCopy")}</p><button class="primary-button" id="start-button">${t("startButton")} <span>→</span></button><button class="secondary-button personality-start" id="personality-start-button" type="button">${language === "bn" ? "ব্যক্তিত্ব কুইজ" : "Personality Quiz"} <span>→</span></button></div>`;
+  content.innerHTML = `<div class="start-state"><div class="big-heart quiz-mascot" aria-hidden="true"><img src="bulbuli-pair.png" alt="" /></div><h2 id="start-title">${t("startTitle")}</h2><p id="start-copy">${t("startCopy")}</p><button class="primary-button" id="start-button">${t("startButton")} <span>→</span></button><button class="secondary-button personality-start" id="personality-start-button" type="button">${language === "bn" ? "ব্যক্তিত্ব কুইজ" : "Personality Quiz"} <span>→</span></button><button class="secondary-button personality-start wellness-start" id="wellness-start-button" type="button">${language === "bn" ? "স্বাস্থ্য কুইজ" : "Health Quiz"} <span>→</span></button></div>`;
   document.querySelector("#start-button").addEventListener("click", renderNameForm);
   document.querySelector("#personality-start-button").addEventListener("click", () => {
     personalityMode = true;
+    wellnessMode = false;
     personalityAnswers = [];
     personalityProfile = null;
+    renderNameForm();
+  });
+  document.querySelector("#wellness-start-button").addEventListener("click", () => {
+    personalityMode = false;
+    wellnessMode = true;
+    wellnessAnswers = [];
     renderNameForm();
   });
 }
