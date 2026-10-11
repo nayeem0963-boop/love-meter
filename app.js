@@ -56,15 +56,21 @@ const banglaQuestions = [
 
 const translations = {
     en: {
-    topNote: "A little heart check-in", eyebrow: "MADE FOR CURIOSITY, NOT CERTAINTY", introTitle: "How strong is<br /><em>your connection?</em>", introCopy: "Answer 25 thoughtful questions about someone on your mind. We’ll turn your answers into a playful love score and a few things to reflect on.", metaQuestions: "♡ &nbsp;25 questions", metaTime: "◷ &nbsp;About 3 minutes", metaFun: "✦ &nbsp;Just for fun", startTitle: "A moment to think about someone special.", startCopy: "There are no right answers. Go with what feels true for you today.", startButton: "Start the questions", footerMade: "Made with a little curiosity <b>♥</b>", footerPrivate: "Your answers stay on this device", ready: "Ready when you are", questionLabel: "QUESTION", complete: "Complete", nameIntro: "A LITTLE INTRODUCTION", beforeBegin: "Before we begin", nameTitle: "Who’s on your mind?", nameCopy: "We’ll use these names to personalize your results and certificate.", yourName: "Your name", belovedName: "Your beloved’s name", yourPlaceholder: "e.g. Alex", belovedPlaceholder: "e.g. Jamie", continue: "Continue to the questions", hint: "Thinking about your connection right now…", answerGroup: "Choose how much this applies", back: "← Back", skip: "Skip question", heartCheck: "YOUR HEART CHECK", outOf: "OUT OF 100", noAnswersTitle: "A blank page, for now", noAnswersCopy: "You skipped every question, so there isn’t enough to make a score. That’s okay—sometimes it takes a little time to know what you feel.", highTitle: "A connection with real warmth", highCopy: "Your answers point to a lot of care, closeness, and shared ease. Enjoy what’s here, and keep making room for honest conversations as you grow.", goodTitle: "A promising kind of closeness", goodCopy: "There are some lovely signs in your answers. Keep noticing how you feel together, and let steady actions and open conversations tell you more over time.", midTitle: "A connection still taking shape", midCopy: "Your answers sound like a mix of bright spots and questions. You don’t need to force a conclusion—notice what feels good and what you may want to talk through.", lowTitle: "Your heart may need a check-in", lowCopy: "Your answers suggest this connection may not be meeting some of your needs right now. Your feelings deserve care; consider what would help you feel respected, safe, and understood.", reflectionTitle: "A gentle reflection", reflectionBlank: "If you want, come back when you feel ready and answer only what feels comfortable.", reflectionEven: "Your answers feel fairly even across the board. Ask yourself which moments with {name} leave you feeling most like yourself.", reflectionLow: "There’s a difference between {strong} and {weak} in your answers. What would help the lower-scoring part feel more cared for?", reflectionHigh: "{strong} stands out as a bright spot. What small moment best captures that feeling for you?", certificate: "Download certificate", preparing: "Preparing certificate…", downloaded: "Certificate downloaded ✓", pdfFailed: "Couldn’t create PDF — try again", retake: "Take it again", disclaimer: "This score is only a playful snapshot of your answers—not a measure of someone else’s feelings, a prediction, or a substitute for talking with each other.", justForFun: "Just for fun", certEyebrow: "A tiny love certificate", certTitle: "A sweet connection", certBetween: "celebrated between", certScore: "YOUR PLAYFUL LOVE SCORE", certBlank: "A HEARTFELT CHECK-IN", certDisclaimer: "A reflection of one person’s answers, not a measure of someone else’s feelings.", categories: ["Emotional connection", "Care & support", "Communication", "Joy & closeness", "Shared direction"], choices: ["Not at all", "A little", "Somewhat", "Quite a bit", "Very much"], toggle: "বাংলা", languageName: "English",
+    topNote: "A little heart check-in", eyebrow: "MADE FOR CURIOSITY, NOT CERTAINTY", introTitle: "How strong is<br /><em>your connection?</em>", introCopy: "Answer 25 thoughtful questions about someone on your mind. We’ll turn your answers into a playful love score and a few things to reflect on.", metaQuestions: "♡ &nbsp;25 questions", metaTime: "◷ &nbsp;About 3 minutes", metaFun: "✦ &nbsp;Just for fun", startTitle: "A moment to think about someone special.", startCopy: "There are no right answers. Go with what feels true for you today.", startButton: "Start the questions", footerMade: "Made with a little curiosity <b>♥</b>", footerPrivate: "Your answers stay on this device", ready: "Ready when you are", questionLabel: "QUESTION", complete: "Complete", nameIntro: "A LITTLE INTRODUCTION", beforeBegin: "Before we begin", nameTitle: "Who’s on your mind?", nameCopy: "We’ll use these names to personalize your results and certificate.", yourName: "Your name", belovedName: "Your beloved’s name", yourPlaceholder: "e.g. Alex", belovedPlaceholder: "e.g. Jamie", continue: "Continue to the questions", hint: "Thinking about your connection right now…", answerGroup: "Choose how much this applies", back: "← Back", skip: "Skip question", heartCheck: "YOUR HEART CHECK", outOf: "OUT OF 100", loveNotEnoughAnswers: "Not enough answers to calculate a score.", loveScoreExplanation: "Your score is the average of answered choices (1–5), mapped to 0–100; skipped questions are excluded. Each category uses the same calculation on its answered questions.", noScoreCertificateCopy: "No score is shown because no questions were answered.", personalityScoreExplanation: "Each trait average uses its answered choices (1–5); skipped questions are excluded. The result lists the trait or traits with the highest average. This is a playful reflection, not a scientific assessment.", personalityTieCopy: "These traits share the highest average in your answers. This is a playful reflection, not a scientific assessment.", healthScoreExplanation: "Each category shows the average of your answered responses (1–5); skipped questions are excluded. The certificate label uses the average across all answered responses. Labels such as Athletic are playful self-reflections, not validated fitness measurements.", wellnessDisclaimer: "This is not a health score, diagnosis, or medical advice. Labels such as Athletic are playful reflections of your questionnaire answers, not validated measures of fitness. For personal health concerns, speak with a qualified health professional.", noAnswersTitle: "A blank page, for now", noAnswersCopy: "You skipped every question, so there isn’t enough to make a score. That’s okay—sometimes it takes a little time to know what you feel.", highTitle: "A connection with real warmth", highCopy: "Your answers point to a lot of care, closeness, and shared ease. Enjoy what’s here, and keep making room for honest conversations as you grow.", goodTitle: "A promising kind of closeness", goodCopy: "There are some lovely signs in your answers. Keep noticing how you feel together, and let steady actions and open conversations tell you more over time.", midTitle: "A connection still taking shape", midCopy: "Your answers sound like a mix of bright spots and questions. You don’t need to force a conclusion—notice what feels good and what you may want to talk through.", lowTitle: "Your heart may need a check-in", lowCopy: "Your answers suggest this connection may not be meeting some of your needs right now. Your feelings deserve care; consider what would help you feel respected, safe, and understood.", reflectionTitle: "A gentle reflection", reflectionBlank: "If you want, come back when you feel ready and answer only what feels comfortable.", reflectionEven: "Your answers feel fairly even across the board. Ask yourself which moments with {name} leave you feeling most like yourself.", reflectionLow: "There’s a difference between {strong} and {weak} in your answers. What would help the lower-scoring part feel more cared for?", reflectionHigh: "{strong} stands out as a bright spot. What small moment best captures that feeling for you?", certificate: "Download certificate", preparing: "Preparing certificate…", downloaded: "Certificate downloaded ✓", pdfFailed: "Couldn’t create PDF — try again", retake: "Take it again", disclaimer: "This score is only a playful snapshot of your answers—not a measure of someone else’s feelings, a prediction, or a substitute for talking with each other.", justForFun: "Just for fun", certEyebrow: "A tiny love certificate", certTitle: "A sweet connection", certBetween: "celebrated between", certScore: "YOUR PLAYFUL LOVE SCORE", certBlank: "A HEARTFELT CHECK-IN", certDisclaimer: "A reflection of one person’s answers, not a measure of someone else’s feelings.", categories: ["Emotional connection", "Care & support", "Communication", "Joy & closeness", "Shared direction"], choices: ["Not at all", "A little", "Somewhat", "Quite a bit", "Very much"], toggle: "বাংলা", languageName: "English",
   },
   bn: {
-    topNote: "ভালোবাসার ছোট্ট খোঁজখবর", eyebrow: "কৌতূহলের জন্য, নিশ্চিত সিদ্ধান্তের জন্য নয়", introTitle: "আপনাদের সম্পর্কের<br /><em>বন্ধন কতটা গভীর?</em>", introCopy: "মনে থাকা মানুষটিকে নিয়ে ২৫টি ভাবনাপূর্ণ প্রশ্নের উত্তর দিন। আপনার উত্তর থেকে তৈরি হবে একটি মজার ভালোবাসার স্কোর ও কিছু ভাবনার খোরাক।", metaQuestions: "♡ &nbsp;২৫টি প্রশ্ন", metaTime: "◷ &nbsp;প্রায় ৩ মিনিট", metaFun: "✦ &nbsp;শুধুই মজার জন্য", startTitle: "বিশেষ মানুষটির কথা একটু ভাবুন।", startCopy: "এখানে সঠিক বা ভুল উত্তর নেই। আজ আপনার কাছে যেটা সত্যি মনে হয়, সেটাই বেছে নিন।", startButton: "প্রশ্ন শুরু করুন", footerMade: "একটু কৌতূহল নিয়ে তৈরি <b>♥</b>", footerPrivate: "আপনার উত্তর এই ডিভাইসেই থাকে", ready: "শুরু করতে প্রস্তুত?", questionLabel: "প্রশ্ন", complete: "সম্পন্ন", nameIntro: "আপনাদের পরিচয়", beforeBegin: "শুরু করার আগে", nameTitle: "কার কথা ভাবছেন?", nameCopy: "ফলাফল ও সার্টিফিকেটে এই নামগুলো ব্যবহার করা হবে।", yourName: "আপনার নাম", belovedName: "প্রিয় মানুষটির নাম", yourPlaceholder: "যেমন: রিয়া", belovedPlaceholder: "যেমন: আরিফ", continue: "প্রশ্নে এগিয়ে যান", hint: "এই মুহূর্তে আপনাদের সম্পর্কের কথা ভাবুন…", answerGroup: "এটি আপনার ক্ষেত্রে কতটা প্রযোজ্য, বেছে নিন", back: "← পেছনে", skip: "প্রশ্ন এড়িয়ে যান", heartCheck: "আপনাদের ভালোবাসার খোঁজখবর", outOf: "১০০-এর মধ্যে", noAnswersTitle: "এখনও ফাঁকা পাতা", noAnswersCopy: "আপনি কোনো প্রশ্নের উত্তর দেননি, তাই স্কোর তৈরি করা যায়নি। সমস্যা নেই—নিজের অনুভূতি বুঝতে কখনো একটু সময় লাগে।", highTitle: "উষ্ণতায় ভরা এক সম্পর্ক", highCopy: "আপনার উত্তরগুলোতে যত্ন, ঘনিষ্ঠতা ও একসঙ্গে স্বচ্ছন্দ থাকার অনেক ইঙ্গিত আছে। এই সুন্দর অনুভূতিগুলো উপভোগ করুন, আর সম্পর্ক এগোনোর সঙ্গে খোলামেলা কথার জায়গাও রাখুন।", goodTitle: "ঘনিষ্ঠতার সুন্দর সম্ভাবনা", goodCopy: "আপনার উত্তরে বেশ কিছু সুন্দর ইঙ্গিত আছে। একসঙ্গে থাকলে কেমন অনুভব করেন তা খেয়াল করুন; সময়ের সঙ্গে ধারাবাহিক কাজ ও খোলামেলা কথাবার্তা আপনাকে আরও বুঝতে সাহায্য করবে।", midTitle: "গড়ে উঠছে এমন এক সম্পর্ক", midCopy: "আপনার উত্তরে ভালো লাগার মুহূর্তের পাশাপাশি কিছু প্রশ্নও আছে। এখনই সিদ্ধান্তে পৌঁছানোর দরকার নেই—কী ভালো লাগে আর কোন বিষয় নিয়ে কথা বলতে চান, তা খেয়াল করুন।", lowTitle: "মনের অনুভূতিগুলো একটু খেয়াল করুন", lowCopy: "আপনার উত্তর ইঙ্গিত দিচ্ছে, এই সম্পর্কটি হয়তো এখন আপনার কিছু প্রয়োজন পূরণ করছে না। আপনার অনুভূতির যত্ন প্রাপ্য; কী করলে আপনি সম্মানিত, নিরাপদ ও বোঝা বোধ করবেন, তা ভাবুন।", reflectionTitle: "একটু ভেবে দেখুন", reflectionBlank: "ইচ্ছে হলে, প্রস্তুত বোধ করলে ফিরে এসে যতটুকু স্বচ্ছন্দ লাগে ততটুকুর উত্তর দিন।", reflectionEven: "বিভিন্ন দিক নিয়ে আপনার উত্তরগুলো প্রায় সমান। {name}-এর সঙ্গে কোন মুহূর্তগুলোতে নিজেকে সবচেয়ে স্বাভাবিক মনে হয়, তা ভাবুন।", reflectionLow: "আপনার উত্তরে {strong} ও {weak}-এর মধ্যে পার্থক্য আছে। কম স্কোর পাওয়া দিকটিতে আরও যত্ন পেতে কী সহায়তা করতে পারে?", reflectionHigh: "{strong} আপনার উত্তরে বিশেষভাবে উজ্জ্বল। কোন ছোট্ট মুহূর্তে এই অনুভূতিটা সবচেয়ে ভালো ধরা পড়ে?", certificate: "সার্টিফিকেট ডাউনলোড", preparing: "সার্টিফিকেট তৈরি হচ্ছে…", downloaded: "সার্টিফিকেট ডাউনলোড হয়েছে ✓", pdfFailed: "PDF তৈরি হয়নি — আবার চেষ্টা করুন", retake: "আবার করুন", disclaimer: "এই স্কোরটি শুধু আপনার উত্তরের একটি মজার প্রতিফলন—অন্য ব্যক্তির অনুভূতির মাপ, ভবিষ্যদ্বাণী বা একে অপরের সঙ্গে কথা বলার বিকল্প নয়।", justForFun: "শুধুই মজার জন্য", certEyebrow: "ভালোবাসার ছোট্ট সনদ", certTitle: "মিষ্টি এক সম্পর্ক", certBetween: "যাদের মাঝে উদযাপিত", certScore: "আপনাদের মজার ভালোবাসার স্কোর", certBlank: "মনের অনুভূতির ছোট্ট খোঁজখবর", certDisclaimer: "একজনের উত্তরের প্রতিফলন, অন্য কারও অনুভূতির মাপ নয়।", categories: ["আবেগের বন্ধন", "যত্ন ও সহায়তা", "যোগাযোগ", "আনন্দ ও ঘনিষ্ঠতা", "একসঙ্গে পথচলা"], choices: ["একদমই না", "একটু", "মোটামুটি", "বেশ খানিকটা", "অনেকটাই"], toggle: "English", languageName: "বাংলা",
+    topNote: "ভালোবাসার ছোট্ট খোঁজখবর", eyebrow: "কৌতূহলের জন্য, নিশ্চিত সিদ্ধান্তের জন্য নয়", introTitle: "আপনাদের সম্পর্কের<br /><em>বন্ধন কতটা গভীর?</em>", introCopy: "মনে থাকা মানুষটিকে নিয়ে ২৫টি ভাবনাপূর্ণ প্রশ্নের উত্তর দিন। আপনার উত্তর থেকে তৈরি হবে একটি মজার ভালোবাসার স্কোর ও কিছু ভাবনার খোরাক।", metaQuestions: "♡ &nbsp;২৫টি প্রশ্ন", metaTime: "◷ &nbsp;প্রায় ৩ মিনিট", metaFun: "✦ &nbsp;শুধুই মজার জন্য", startTitle: "বিশেষ মানুষটির কথা একটু ভাবুন।", startCopy: "এখানে সঠিক বা ভুল উত্তর নেই। আজ আপনার কাছে যেটা সত্যি মনে হয়, সেটাই বেছে নিন।", startButton: "প্রশ্ন শুরু করুন", footerMade: "একটু কৌতূহল নিয়ে তৈরি <b>♥</b>", footerPrivate: "আপনার উত্তর এই ডিভাইসেই থাকে", ready: "শুরু করতে প্রস্তুত?", questionLabel: "প্রশ্ন", complete: "সম্পন্ন", nameIntro: "আপনাদের পরিচয়", beforeBegin: "শুরু করার আগে", nameTitle: "কার কথা ভাবছেন?", nameCopy: "ফলাফল ও সার্টিফিকেটে এই নামগুলো ব্যবহার করা হবে।", yourName: "আপনার নাম", belovedName: "প্রিয় মানুষটির নাম", yourPlaceholder: "যেমন: রিয়া", belovedPlaceholder: "যেমন: আরিফ", continue: "প্রশ্নে এগিয়ে যান", hint: "এই মুহূর্তে আপনাদের সম্পর্কের কথা ভাবুন…", answerGroup: "এটি আপনার ক্ষেত্রে কতটা প্রযোজ্য, বেছে নিন", back: "← পেছনে", skip: "প্রশ্ন এড়িয়ে যান", heartCheck: "আপনাদের ভালোবাসার খোঁজখবর", outOf: "১০০-এর মধ্যে", loveNotEnoughAnswers: "স্কোর গণনার জন্য যথেষ্ট উত্তর নেই।", loveScoreExplanation: "স্কোরটি উত্তর দেওয়া প্রশ্নগুলোর গড় (১–৫) থেকে ০–১০০ স্কেলে রূপান্তর করা হয়; এড়িয়ে যাওয়া প্রশ্ন বাদ থাকে। প্রতিটি বিভাগের উত্তরগুলোর ক্ষেত্রেও একই হিসাব করা হয়।", noScoreCertificateCopy: "কোনো প্রশ্নের উত্তর না থাকায় এখানে স্কোর দেখানো হয়নি।", personalityScoreExplanation: "প্রতিটি বৈশিষ্ট্যের গড় বের হয় তার উত্তর দেওয়া প্রশ্নগুলোর (১–৫) মান দিয়ে; এড়িয়ে যাওয়া প্রশ্ন বাদ থাকে। ফলাফলে সর্বোচ্চ গড় পাওয়া বৈশিষ্ট্য বা বৈশিষ্ট্যগুলো দেখানো হয়। এটি মজার আত্ম-প্রতিফলন, বৈজ্ঞানিক মূল্যায়ন নয়।", personalityTieCopy: "আপনার উত্তরে এই বৈশিষ্ট্যগুলো একই সর্বোচ্চ গড় পেয়েছে। এটি মজার আত্ম-প্রতিফলন, বৈজ্ঞানিক মূল্যায়ন নয়।", healthScoreExplanation: "প্রতিটি বিভাগে উত্তর দেওয়া প্রশ্নগুলোর গড় (১–৫) দেখানো হয়; এড়িয়ে যাওয়া প্রশ্ন বাদ থাকে। সার্টিফিকেটের শ্রেণি সব উত্তর দেওয়া প্রশ্নের গড় থেকে নির্ধারিত। অ্যাথলেটিকের মতো শ্রেণি কেবল মজার স্ব-প্রতিফলন; এগুলো ফিটনেসের যাচাইকৃত পরিমাপ নয়।", wellnessDisclaimer: "এটি স্বাস্থ্য স্কোর, রোগ নির্ণয় বা চিকিৎসা পরামর্শ নয়। অ্যাথলেটিকের মতো শ্রেণি আপনার প্রশ্নমালার উত্তরের মজার প্রতিফলন, ফিটনেসের যাচাইকৃত পরিমাপ নয়। ব্যক্তিগত স্বাস্থ্য-উদ্বেগে যোগ্য স্বাস্থ্যসেবা পেশাজীবীর সঙ্গে কথা বলুন।", noAnswersTitle: "এখনও ফাঁকা পাতা", noAnswersCopy: "আপনি কোনো প্রশ্নের উত্তর দেননি, তাই স্কোর তৈরি করা যায়নি। সমস্যা নেই—নিজের অনুভূতি বুঝতে কখনো একটু সময় লাগে।", highTitle: "উষ্ণতায় ভরা এক সম্পর্ক", highCopy: "আপনার উত্তরগুলোতে যত্ন, ঘনিষ্ঠতা ও একসঙ্গে স্বচ্ছন্দ থাকার অনেক ইঙ্গিত আছে। এই সুন্দর অনুভূতিগুলো উপভোগ করুন, আর সম্পর্ক এগোনোর সঙ্গে খোলামেলা কথার জায়গাও রাখুন।", goodTitle: "ঘনিষ্ঠতার সুন্দর সম্ভাবনা", goodCopy: "আপনার উত্তরে বেশ কিছু সুন্দর ইঙ্গিত আছে। একসঙ্গে থাকলে কেমন অনুভব করেন তা খেয়াল করুন; সময়ের সঙ্গে ধারাবাহিক কাজ ও খোলামেলা কথাবার্তা আপনাকে আরও বুঝতে সাহায্য করবে।", midTitle: "গড়ে উঠছে এমন এক সম্পর্ক", midCopy: "আপনার উত্তরে ভালো লাগার মুহূর্তের পাশাপাশি কিছু প্রশ্নও আছে। এখনই সিদ্ধান্তে পৌঁছানোর দরকার নেই—কী ভালো লাগে আর কোন বিষয় নিয়ে কথা বলতে চান, তা খেয়াল করুন।", lowTitle: "মনের অনুভূতিগুলো একটু খেয়াল করুন", lowCopy: "আপনার উত্তর ইঙ্গিত দিচ্ছে, এই সম্পর্কটি হয়তো এখন আপনার কিছু প্রয়োজন পূরণ করছে না। আপনার অনুভূতির যত্ন প্রাপ্য; কী করলে আপনি সম্মানিত, নিরাপদ ও বোঝা বোধ করবেন, তা ভাবুন।", reflectionTitle: "একটু ভেবে দেখুন", reflectionBlank: "ইচ্ছে হলে, প্রস্তুত বোধ করলে ফিরে এসে যতটুকু স্বচ্ছন্দ লাগে ততটুকুর উত্তর দিন।", reflectionEven: "বিভিন্ন দিক নিয়ে আপনার উত্তরগুলো প্রায় সমান। {name}-এর সঙ্গে কোন মুহূর্তগুলোতে নিজেকে সবচেয়ে স্বাভাবিক মনে হয়, তা ভাবুন।", reflectionLow: "আপনার উত্তরে {strong} ও {weak}-এর মধ্যে পার্থক্য আছে। কম স্কোর পাওয়া দিকটিতে আরও যত্ন পেতে কী সহায়তা করতে পারে?", reflectionHigh: "{strong} আপনার উত্তরে বিশেষভাবে উজ্জ্বল। কোন ছোট্ট মুহূর্তে এই অনুভূতিটা সবচেয়ে ভালো ধরা পড়ে?", certificate: "সার্টিফিকেট ডাউনলোড", preparing: "সার্টিফিকেট তৈরি হচ্ছে…", downloaded: "সার্টিফিকেট ডাউনলোড হয়েছে ✓", pdfFailed: "PDF তৈরি হয়নি — আবার চেষ্টা করুন", retake: "আবার করুন", disclaimer: "এই স্কোরটি শুধু আপনার উত্তরের একটি মজার প্রতিফলন—অন্য ব্যক্তির অনুভূতির মাপ, ভবিষ্যদ্বাণী বা একে অপরের সঙ্গে কথা বলার বিকল্প নয়।", justForFun: "শুধুই মজার জন্য", certEyebrow: "ভালোবাসার ছোট্ট সনদ", certTitle: "মিষ্টি এক সম্পর্ক", certBetween: "যাদের মাঝে উদযাপিত", certScore: "আপনাদের মজার ভালোবাসার স্কোর", certBlank: "মনের অনুভূতির ছোট্ট খোঁজখবর", certDisclaimer: "একজনের উত্তরের প্রতিফলন, অন্য কারও অনুভূতির মাপ নয়।", categories: ["আবেগের বন্ধন", "যত্ন ও সহায়তা", "যোগাযোগ", "আনন্দ ও ঘনিষ্ঠতা", "একসঙ্গে পথচলা"], choices: ["একদমই না", "একটু", "মোটামুটি", "বেশ খানিকটা", "খুব বেশি"], toggle: "English", languageName: "বাংলা",
   },
 };
 
 translations.en.startButton = "Love Meter Quiz";
 translations.bn.startButton = "লাভ মিটার কুইজ";
+translations.en.wellnessPdfDisclaimer = "Based on your answers for playful self-reflection only. Labels such as Athletic are not validated fitness measurements. Not a clinical fitness assessment, diagnosis, or medical advice.";
+translations.bn.wellnessPdfDisclaimer = "শুধু মজার আত্ম-প্রতিফলনের জন্য আপনার উত্তরের ভিত্তিতে তৈরি। অ্যাথলেটিকের মতো শ্রেণি ফিটনেসের যাচাইকৃত পরিমাপ নয়। এটি ক্লিনিক্যাল ফিটনেস মূল্যায়ন, রোগ নির্ণয় বা চিকিৎসা পরামর্শ নয়।";
+translations.en.noScoreCertificateTitle = "A love check-in";
+translations.bn.noScoreCertificateTitle = "ভালোবাসার ছোট্ট খোঁজখবর";
+translations.en.noScoreCertificateBetween = "a moment to reflect for";
+translations.bn.noScoreCertificateBetween = "একটু ভাবনার জন্য";
 
 const languageCategories = {
   en: translations.en.categories,
@@ -99,7 +105,7 @@ let language = "en";
 let screen = "start";
 let personalityMode = false;
 let personalityAnswers = [];
-let personalityProfile = null;
+let personalityProfiles = [];
 const personalityTraits = ["curious", "caring", "social", "steady", "confident"];
 const personalityQuestions = [
   { en: "How eager are you to explore unfamiliar places or ideas?", bn: "অচেনা জায়গা বা নতুন ধারণা খুঁজে দেখতে আপনি কতটা আগ্রহী?", trait: 0 },
@@ -264,7 +270,7 @@ document.querySelector("#personality-start-button").addEventListener("click", ()
   personalityMode = true;
   wellnessMode = false;
   personalityAnswers = [];
-  personalityProfile = null;
+  personalityProfiles = [];
   renderNameForm();
 });
 document.querySelector("#wellness-start-button").addEventListener("click", () => {
@@ -424,12 +430,7 @@ function renderPersonalityQuestion() {
 function choosePersonality(value) {
   personalityAnswers[current] = value;
   if (current < personalityQuestions.length - 1) { current += 1; renderPersonalityQuestion(); return; }
-  const averages = personalityTraits.map((_, trait) => {
-    const values = personalityQuestions.map((question, index) => question.trait === trait ? personalityAnswers[index] : null).filter((answer) => answer !== null);
-    return values.length ? values.reduce((sum, answer) => sum + answer, 0) / values.length : null;
-  });
-  const highest = Math.max(...averages.filter((average) => average !== null), 0);
-  personalityProfile = highest ? averages.indexOf(highest) : null;
+  personalityProfiles = BulbuliResultLogic.calculatePersonalityLeaders(personalityQuestions, personalityAnswers, personalityTraits);
   renderPersonalityResults();
 }
 
@@ -439,13 +440,15 @@ function renderPersonalityResults() {
   stepLabel.textContent = language === "bn" ? "আপনার ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT";
   progressLabel.textContent = t("complete");
   fill.style.width = "100%";
-  const title = personalityProfile === null
+  const title = personalityProfiles.length === 0
     ? (language === "bn" ? "আরও একটু জানার বাকি" : "A personality profile awaits")
-    : personalityOptions[language][personalityProfile];
-  const copy = personalityProfile === null
+    : personalityProfiles.map((profile) => personalityOptions[language][profile]).join(" + ");
+  const copy = personalityProfiles.length === 0
     ? (language === "bn" ? "সব প্রশ্ন এড়িয়ে গেছেন—একটি উত্তর দিলেই ব্যক্তিত্বের ঝলক তৈরি হবে।" : "You skipped every question. Answer at least one to reveal a personality snapshot.")
-    : personalityDescriptions[language][personalityProfile];
-  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${title}</h2><p class="result-copy">${copy}</p><div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer">${language === "bn" ? "এটি আপনার নিজের উত্তরের ভিত্তিতে তৈরি মজার একটি ঝলক—কোনো বৈজ্ঞানিক ব্যক্তিত্ব মূল্যায়ন নয়।" : "A playful snapshot based on your self-reported answers, not a scientific personality assessment."}</p></div>`;
+    : personalityProfiles.length > 1
+      ? t("personalityTieCopy")
+      : personalityDescriptions[language][personalityProfiles[0]];
+  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "ব্যক্তিত্বের ঝলক" : "PERSONALITY SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${title}</h2><p class="result-copy">${copy}</p>${personalityProfiles.length ? `<p class="result-note">${t("personalityScoreExplanation")}</p>` : ""}<div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer">${language === "bn" ? "এটি আপনার নিজের উত্তরের ভিত্তিতে তৈরি মজার একটি ঝলক—কোনো বৈজ্ঞানিক ব্যক্তিত্ব মূল্যায়ন নয়।" : "A playful snapshot based on your self-reported answers, not a scientific personality assessment."}</p></div>`;
   document.querySelector("#again-button").addEventListener("click", reset);
   document.querySelector("#certificate-button").addEventListener("click", downloadPersonalityCertificate);
 }
@@ -506,15 +509,17 @@ async function downloadPersonalityCertificate() {
     context.fillStyle = "#362c2c";
     context.font = language === "bn" ? `600 72px ${font}` : "400 104px 'Great Vibes', cursive";
     context.fillText(userName, textLeft, 390, 650);
-    const profileTitle = personalityProfile === null
+    const profileTitle = personalityProfiles.length === 0
       ? (language === "bn" ? "আরও একটু জানার বাকি" : "A personality profile awaits")
-      : personalityOptions[language][personalityProfile];
+      : personalityProfiles.map((profile) => personalityOptions[language][profile]).join(" + ");
     context.fillStyle = "#a54158";
     context.font = language === "bn" ? `600 54px ${font}` : "600 48px 'Playfair Display', Georgia, serif";
     context.fillText(profileTitle, textLeft, 500, 650);
-    const description = personalityProfile === null
+    const description = personalityProfiles.length === 0
       ? (language === "bn" ? "আপনার উত্তরের ভিত্তিতে ব্যক্তিত্বের ফল তৈরি হবে।" : "Your answers will shape your personality snapshot.")
-      : personalityDescriptions[language][personalityProfile];
+      : personalityProfiles.length > 1
+        ? t("personalityTieCopy")
+        : personalityDescriptions[language][personalityProfiles[0]];
     context.fillStyle = "#645b5b";
     context.font = `400 ${language === "bn" ? 27 : 26}px ${font}`;
     drawWrappedText(context, description, textLeft, 565, 630, 42, 5);
@@ -661,31 +666,24 @@ function renderWellnessResults() {
   stepLabel.textContent = language === "bn" ? "দৈনন্দিন সুস্থতার ঝলক" : "WELLNESS REFLECTION";
   progressLabel.textContent = t("complete");
   fill.style.width = "100%";
-  const scores = wellnessCategories.map((_, category) => {
-    const values = wellnessQuestions.map((question, index) => question.category === category ? wellnessAnswers[index] : null).filter((value) => value !== null);
-    const average = values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
-    return { category, average };
-  });
+  const scores = BulbuliResultLogic.calculateCategoryAverages(wellnessQuestions, wellnessAnswers, wellnessCategories.map((_, category) => category));
   const hasAnswers = wellnessAnswers.some((value) => value !== null && value !== undefined);
   const summary = hasAnswers
     ? (language === "bn" ? "এগুলো আপনার বেছে নেওয়া অভ্যাসের একটি সাধারণ ঝলক। ছোট ছোট পরিবর্তন নিয়েও ভাবতে পারেন, তবে আপনার প্রয়োজন ব্যক্তিভেদে আলাদা।" : "These are a simple reflection of the routines you selected. You might use them to notice habits you want to nurture; needs differ from person to person.")
     : (language === "bn" ? "কোনো প্রশ্নের উত্তর দেওয়া হয়নি, তাই অভ্যাসের ঝলক দেখানো যাচ্ছে না।" : "No questions were answered, so there is no routine snapshot to show.");
   const categories = scores.map((item) => `<div class="category-row"><span>${wellnessCategoryTranslations[language][item.category]}</span><div class="mini-track"><div class="mini-fill" style="width:${item.average === null ? 0 : Math.round((item.average / 5) * 100)}%"></div></div><span class="category-value">${item.average === null ? "—" : `${formatNumber(Number(item.average.toFixed(1)))} / 5`}</span></div>`).join("");
   const scaleLabel = language === "bn" ? "দৈনন্দিন অভ্যাসের স্ব-প্রতিবেদিত মিল (১–৫)" : "Self-reported fit of these routines (1–5)";
-  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "সুস্থতার ঝলক" : "WELLNESS SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${language === "bn" ? "দৈনন্দিন সুস্থতার প্রতিফলন" : "Everyday wellness reflection"}</h2><p class="result-copy">${summary}</p><p class="hint">${scaleLabel}</p><div class="category-scores">${categories}</div><div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer">${language === "bn" ? "এটি কোনো স্বাস্থ্য স্কোর, রোগ নির্ণয় বা চিকিৎসা পরামর্শ নয়। স্বাস্থ্য নিয়ে প্রশ্ন থাকলে যোগ্য স্বাস্থ্যসেবা পেশাজীবীর সঙ্গে কথা বলুন।" : "This is not a health score, diagnosis, or medical advice. For personal health concerns, speak with a qualified health professional."}</p></div>`;
+  content.innerHTML = `<div class="results"><div class="score-ring personality-ring"><div><div class="score-number">✦</div><div class="score-caption">${language === "bn" ? "সুস্থতার ঝলক" : "WELLNESS SNAPSHOT"}</div></div></div><p class="names-line">${escapeHtml(userName)}</p><h2>${language === "bn" ? "দৈনন্দিন সুস্থতার প্রতিফলন" : "Everyday wellness reflection"}</h2><p class="result-copy">${summary}</p><p class="result-note">${t("healthScoreExplanation")}</p><p class="hint">${scaleLabel}</p><div class="category-scores">${categories}</div><div class="results-actions"><button class="primary-button" id="certificate-button">${t("certificate")} <span>↓</span></button><button class="secondary-button" id="again-button">${t("retake")} <span>↻</span></button></div><p class="disclaimer wellness-disclaimer">${t("wellnessDisclaimer")}</p></div>`;
   document.querySelector("#again-button").addEventListener("click", reset);
   document.querySelector("#certificate-button").addEventListener("click", downloadWellnessCertificate);
 }
 
 function wellnessCertificateCategory() {
-  const values = wellnessAnswers.filter((value) => Number.isInteger(value) && value >= 1 && value <= 5);
-  if (!values.length) return { en: "Not enough answers", bn: "উত্তর যথেষ্ট নয়" };
-  const average = values.reduce((sum, value) => sum + value, 0) / values.length;
-  const index = average >= 4.5 ? 0 : average >= 3.8 ? 1 : average >= 3.1 ? 2 : average >= 2.4 ? 3 : 4;
-  return {
-    en: ["Athletic", "Very fit", "Healthy", "Moderately fit", "Needs improvement"][index],
-    bn: ["অ্যাথলেটিক", "খুব ফিট", "সুস্থ", "মাঝারি ফিট", "উন্নতির সুযোগ"][index],
+  const labels = {
+    en: { insufficient: "Not enough answers", categories: ["Athletic", "Very fit", "Healthy", "Moderately fit", "Needs improvement"] },
+    bn: { insufficient: "উত্তর যথেষ্ট নয়", categories: ["অ্যাথলেটিক", "খুব ফিট", "সুস্থ", "মাঝারি ফিট", "উন্নতির সুযোগ"] },
   };
+  return { en: BulbuliResultLogic.calculateWellnessCategory(wellnessAnswers, labels.en), bn: BulbuliResultLogic.calculateWellnessCategory(wellnessAnswers, labels.bn) };
 }
 
 async function downloadWellnessCertificate() {
@@ -723,9 +721,9 @@ async function downloadWellnessCertificate() {
     const date = new Intl.DateTimeFormat(language === "bn" ? "bn-BD" : undefined, { dateStyle: "long" }).format(new Date());
     context.fillStyle = "#887b7e";
     context.font = `400 23px ${font}`;
-    context.fillText(language === "bn" ? `${date} · শুধুই ভাবনার জন্য` : `Created ${date} · For reflection`, textLeft, 890);
+    context.fillText(language === "bn" ? `${date} · শুধুই ভাবনার জন্য` : `Created ${date} · For reflection`, textLeft, 850);
     context.font = `400 19px ${font}`;
-    drawWrappedText(context, language === "bn" ? "এই শ্রেণি কেবল কুইজের স্ব-প্রতিবেদিত উত্তরের ভিত্তিতে; এটি ফিটনেস পরীক্ষা, চিকিৎসা মূল্যায়ন বা রোগ নির্ণয় নয়।" : "Based only on self-reported quiz answers; not a fitness test, medical assessment, or diagnosis.", textLeft, 945, 650, 29, 3);
+    drawWrappedText(context, t("wellnessPdfDisclaimer"), textLeft, 900, 650, 29, 5);
     const jpeg = dataUrlToBytes(canvas.toDataURL("image/jpeg", 0.94));
     const pdf = makeImagePdf(jpeg, canvas.width, canvas.height);
     const url = URL.createObjectURL(pdf);
@@ -753,15 +751,11 @@ function choose(value) {
 function renderResults() {
   screen = "result";
   updateHomeButton();
-  const answered = answers.filter((value) => value !== null);
-  const score = answered.length ? Math.round(((answered.reduce((sum, value) => sum + value, 0) - answered.length) / (answered.length * 4)) * 100) : 0;
-  const groups = [...new Set(questions.map((question) => question.category))];
-  const categoryScores = groups.map((name) => {
-    const values = questions.map((question, index) => question.category === name ? answers[index] : null).filter((value) => value !== null);
-    return { name, score: values.length ? Math.round(((values.reduce((sum, value) => sum + value, 0) - values.length) / (values.length * 4)) * 100) : null };
-  });
+  const categories = [...new Set(questions.map((question) => question.category))];
+  const { answerCount, score, categoryScores } = BulbuliResultLogic.calculateLoveResults(questions, answers, categories);
+  const hasScore = score !== null;
   let titleKey, copyKey;
-  if (!answered.length) { titleKey = "noAnswersTitle"; copyKey = "noAnswersCopy"; }
+  if (!answerCount) { titleKey = "noAnswersTitle"; copyKey = "noAnswersCopy"; }
   else if (score >= 80) { titleKey = "highTitle"; copyKey = "highCopy"; }
   else if (score >= 60) { titleKey = "goodTitle"; copyKey = "goodCopy"; }
   else if (score >= 40) { titleKey = "midTitle"; copyKey = "midCopy"; }
@@ -772,10 +766,11 @@ function renderResults() {
   fill.style.width = "100%";
   content.innerHTML = `
     <div class="results">
-      <div class="score-ring" style="--score:${score}%"><div><div class="score-number">${formatNumber(score)}</div><div class="score-caption">${t("outOf")}</div></div></div>
+      ${hasScore ? `<div class="score-ring" style="--score:${score}%"><div><div class="score-number">${formatNumber(score)}</div><div class="score-caption">${t("outOf")}</div></div></div>` : `<p class="no-score-message" role="status">${t("loveNotEnoughAnswers")}</p>`}
       <p class="names-line">${escapeHtml(userName)} &nbsp; <span>♥</span> &nbsp; ${escapeHtml(belovedName)}</p>
       <h2>${t(titleKey)}</h2>
       <p class="result-copy">${t(copyKey)}</p>
+      <p class="result-note">${t("loveScoreExplanation")}</p>
       <div class="category-scores">${categoryScores.map((item) => `<div class="category-row"><span>${localizeCategory(item.name)}</span><div class="mini-track"><div class="mini-fill" style="width:${item.score ?? 0}%"></div></div><span class="category-value">${item.score === null ? "—" : formatNumber(item.score)}</span></div>`).join("")}</div>
       <div class="reflection"><strong>${t("reflectionTitle")}</strong>${reflectionFor(categoryScores)}</div>
       <fieldset class="template-picker"><legend>${language === "bn" ? "সার্টিফিকেটের নকশা বেছে নিন" : "Choose a certificate design"}</legend><div class="template-options">${certificateTemplates.map((template) => `<label class="template-option ${certificateTemplate === template.id ? "selected" : ""}"><input type="radio" name="certificate-template" value="${template.id}" ${certificateTemplate === template.id ? "checked" : ""}><span class="template-swatch template-${template.id}" aria-hidden="true"><span>♥</span></span><span class="template-name">${language === "bn" ? template.bn : template.en}</span></label>`).join("")}</div></fieldset>
@@ -787,7 +782,7 @@ function renderResults() {
     certificateTemplate = input.value;
     document.querySelectorAll(".template-option").forEach((option) => option.classList.toggle("selected", option.querySelector("input").checked));
   }));
-  document.querySelector("#certificate-button").addEventListener("click", () => downloadCertificate(score, answered.length > 0));
+  document.querySelector("#certificate-button").addEventListener("click", () => downloadCertificate(score, hasScore));
 }
 
 function escapeHtml(value) {
@@ -822,10 +817,10 @@ async function downloadCertificate(score, hasScore) {
     context.letterSpacing = "0px";
     context.fillStyle = design.title;
     context.font = language === "bn" ? `600 72px ${banglaFont}` : "600 76px 'Playfair Display', Georgia, serif";
-    context.fillText(t("certTitle"), textLeft, 330, 680);
+    context.fillText(hasScore ? t("certTitle") : t("noScoreCertificateTitle"), textLeft, 330, 680);
     context.fillStyle = "#887b7e";
     context.font = `400 28px ${banglaFont}`;
-    context.fillText(t("certBetween"), textLeft, 395);
+    context.fillText(hasScore ? t("certBetween") : t("noScoreCertificateBetween"), textLeft, 395);
     context.fillStyle = design.accent;
     context.font = language === "bn" ? `600 54px ${banglaFont}` : "400 78px 'Great Vibes', cursive";
     context.fillText(userName, textLeft, 535, 290);
@@ -839,11 +834,19 @@ async function downloadCertificate(score, hasScore) {
     context.font = `400 23px ${banglaFont}`;
     context.fillText(language === "bn" ? "আপনাদের ভালোবাসার ঝলক" : "YOUR CONNECTION SNAPSHOT", textLeft, 620);
     context.fillStyle = design.accent;
-    context.font = `700 92px ${banglaFont}`;
-    context.fillText(hasScore ? `${formatNumber(score)}%` : "♡", textLeft, 755);
-    context.fillStyle = "#887b7e";
-    context.font = `500 22px ${banglaFont}`;
-    context.fillText(hasScore ? t("certScore") : t("certBlank"), textLeft, 805, 650);
+    if (hasScore) {
+      context.font = `700 92px ${banglaFont}`;
+      context.fillText(`${formatNumber(score)}%`, textLeft, 755);
+      context.fillStyle = "#887b7e";
+      context.font = `500 22px ${banglaFont}`;
+      context.fillText(t("certScore"), textLeft, 805, 650);
+    } else {
+      context.font = `600 ${language === "bn" ? 28 : 27}px ${banglaFont}`;
+      drawWrappedText(context, t("loveNotEnoughAnswers"), textLeft, 745, 650, 35, 2);
+      context.fillStyle = "#887b7e";
+      context.font = `400 20px ${banglaFont}`;
+      context.fillText(t("noScoreCertificateCopy"), textLeft, 815, 650);
+    }
     context.fillStyle = "#9a8b8e";
     context.font = `400 20px ${banglaFont}`;
     context.fillText(language === "bn" ? `${displayDate} · ${t("justForFun")}` : `Created ${displayDate} · ${t("justForFun")}`, textLeft, 920);
@@ -959,7 +962,7 @@ function reflectionFor(scores) {
 function reset() {
   answers.fill(null);
   personalityAnswers = [];
-  personalityProfile = null;
+  personalityProfiles = [];
   wellnessAnswers = [];
   personalityMode = false;
   wellnessMode = false;
@@ -980,7 +983,7 @@ function reset() {
     personalityMode = true;
     wellnessMode = false;
     personalityAnswers = [];
-    personalityProfile = null;
+    personalityProfiles = [];
     renderNameForm();
   });
   document.querySelector("#wellness-start-button").addEventListener("click", () => {

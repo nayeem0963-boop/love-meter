@@ -99,6 +99,9 @@ h2 { font: 600 24px "Playfair Display", Georgia, serif; margin: 11px 0 8px; }
 .names-line { color: #9b777e; font: 600 14px "Playfair Display", Georgia, serif; margin: 0 auto 8px; }
 .names-line span { color: var(--rose); }
 .result-copy { max-width: 475px; margin: 0 auto 20px; color: #75696c; font-size: 13px; line-height: 1.7; }
+.result-note { max-width: 475px; margin: 0 auto 18px; padding: 11px 14px; border-radius: 9px; background: #fff8f5; color: #76666a; font-size: 11px; line-height: 1.65; }
+.no-score-message { max-width: 430px; margin: 20px auto 18px; padding: 15px 18px; border: 1px solid #f0d4d2; border-radius: 12px; background: #fff8f7; color: var(--rose-dark); font: 600 15px/1.55 "Playfair Display", Georgia, serif; }
+.wellness-disclaimer { max-width: 475px; padding: 13px 15px; border: 1px solid #d9e5d9; border-radius: 9px; background: #f5f8f3; color: #455b4b; font-size: 11px; }
 .category-scores { max-width: 390px; margin: 0 auto 20px; text-align: left; display: grid; gap: 10px; }
 .category-row { display: grid; grid-template-columns: 115px 1fr 34px; gap: 9px; align-items: center; font-size: 11px; color: #74676b; }
 .mini-track { height: 6px; border-radius: 5px; background: #f4e9e7; overflow: hidden; }
